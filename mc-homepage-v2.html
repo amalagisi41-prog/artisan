@@ -1,0 +1,2122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marr Caruso Realty Group | Fairfield County Homes For Sale</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #f4f5f7;
+    --cream-alt: #f8f9fb;
+    --cream-dark: #e8eaef;
+    --green: #1b3d7a;
+    --green-mid: #234a92;
+    --green-light: #2d58aa;
+    --gold: #9aa0b4;
+    --gold-light: #c0c4d0;
+    --gold-pale: #eaecf2;
+    --white: #ffffff;
+    --text-muted: #5a6480;
+    --border: #cdd1de;
+    --shadow: 0 4px 24px rgba(27,61,122,0.10);
+    --shadow-hover: 0 12px 40px rgba(27,61,122,0.20);
+    /* MC Brand */
+    --navy: #1b3d7a;
+    --navy-dark: #112850;
+    --navy-mid: #234a92;
+    --navy-light: #2d58aa;
+    --navy-pale: #e8edf8;
+    --platinum: #d0d4de;
+    --platinum-light: #eaecf2;
+    --platinum-dark: #9aa0b4;
+  }
+
+  body { font-family: 'Inter', sans-serif; background: var(--cream-alt); color: var(--navy); overflow-x: hidden; }
+  h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--green);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 72px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .logo-mark {
+    width: 44px; height: 44px; border-radius: 6px;
+    background: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-weight: 700;
+    font-size: 15px; color: var(--navy); letter-spacing: -1px;
+    border: 2px solid rgba(255,255,255,0.4);
+    position: relative; overflow: hidden;
+  }
+  .logo-mark::after {
+    content: ''; position: absolute;
+    top: -4px; right: 8px; width: 2px; height: 56px;
+    background: var(--platinum); opacity: 0.6;
+    transform: rotate(18deg);
+  }
+  .logo-text { display: flex; flex-direction: column; }
+  .logo-name { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; color: var(--white); line-height: 1.1; }
+  .logo-sub { font-size: 10px; color: rgba(255,255,255,0.55); letter-spacing: 2px; text-transform: uppercase; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--platinum); }
+  .nav-links a.active { color: var(--platinum); }
+  .nav-cta {
+    background: var(--white); color: var(--navy);
+    border: none; border-radius: 8px; padding: 10px 22px;
+    font-size: 14px; font-weight: 700; cursor: pointer;
+    font-family: 'Inter', sans-serif; transition: all 0.2s;
+    text-decoration: none;
+  }
+  .nav-cta:hover { background: var(--platinum-light); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative; min-height: 680px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  /* Colonial illustration fills the hero background */
+  .hero-illustration {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+  }
+  /* Dark gradient overlay for text legibility */
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(10,24,48,0.18) 0%,
+      rgba(10,24,48,0.30) 40%,
+      rgba(10,24,48,0.72) 100%
+    );
+    z-index: 1;
+  }
+  .hero-content { position: relative; z-index: 2; text-align: center; padding: 340px 24px 80px; max-width: 800px; }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(27,61,122,0.65); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 6px 16px; font-size: 12px; color: #ffffff; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 24px; backdrop-filter: blur(4px); }
+  .hero h1 { font-size: clamp(36px, 5vw, 62px); color: var(--white); line-height: 1.1; margin-bottom: 20px; }
+  .hero h1 em { color: var(--platinum); font-style: normal; }
+  .hero p { font-size: 18px; color: rgba(255,255,255,0.75); max-width: 560px; margin: 0 auto 40px; line-height: 1.7; }
+
+  /* search bar */
+  .search-bar {
+    background: var(--white); border-radius: 16px;
+    padding: 8px 8px 8px 24px;
+    display: flex; align-items: center; gap: 12px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+    max-width: 680px; margin: 0 auto;
+  }
+  .search-icon { font-size: 20px; flex-shrink: 0; }
+  .search-input { flex: 1; border: none; outline: none; font-size: 16px; font-family: 'Inter', sans-serif; color: var(--navy); background: transparent; }
+  .search-input::placeholder { color: var(--text-muted); }
+  .search-divider { width: 1px; height: 32px; background: var(--border); }
+  .search-select { border: none; outline: none; font-size: 14px; font-family: 'Inter', sans-serif; color: var(--navy); background: transparent; padding: 0 12px; cursor: pointer; font-weight: 500; }
+  .search-btn {
+    background: var(--navy); color: var(--white); border: none;
+    border-radius: 10px; padding: 14px 28px;
+    font-size: 15px; font-weight: 600; cursor: pointer;
+    font-family: 'Inter', sans-serif; white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .search-btn:hover { background: var(--navy-mid); }
+
+  /* search tags */
+  .search-tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+  .search-tag {
+    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px; padding: 6px 16px;
+    font-size: 13px; color: rgba(255,255,255,0.85); cursor: pointer;
+    transition: all 0.2s;
+  }
+  .search-tag:hover { background: rgba(255,255,255,0.25); }
+
+  /* ── STATS STRIP ── */
+  .stats-strip {
+    background: var(--navy-dark);
+    display: flex; align-items: center; justify-content: center;
+    gap: 0; padding: 0;
+    border-top: 3px solid var(--platinum);
+  }
+  .stat-item {
+    flex: 1; max-width: 240px; text-align: center;
+    padding: 22px 24px; border-right: 1px solid rgba(255,255,255,0.12);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--white); line-height: 1; }
+  .stat-label { font-size: 12px; color: var(--platinum); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
+
+  /* ── SECTION COMMONS ── */
+  section { padding: 80px 48px; }
+  .section-header { text-align: center; margin-bottom: 56px; }
+  .section-eyebrow { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--navy); font-weight: 700; margin-bottom: 12px; }
+  .section-header h2 { font-size: clamp(28px, 3vw, 42px); color: var(--navy); margin-bottom: 14px; }
+  .section-header p { font-size: 17px; color: var(--text-muted); max-width: 520px; margin: 0 auto; line-height: 1.7; }
+
+  /* ── CITY TABS ── */
+  .city-tabs-wrap { position: sticky; top: 72px; z-index: 90; background: var(--white); border-bottom: 2px solid var(--border); padding: 0 48px; box-shadow: 0 2px 8px rgba(27,61,122,0.06); }
+  .city-tabs { display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
+  .city-tabs::-webkit-scrollbar { display: none; }
+  .city-tab {
+    flex-shrink: 0; padding: 18px 28px; border-bottom: 3px solid transparent;
+    font-size: 14px; font-weight: 600; color: var(--text-muted);
+    cursor: pointer; transition: all 0.2s; white-space: nowrap;
+    background: none; border-top: none; border-left: none; border-right: none;
+    font-family: 'Inter', sans-serif;
+  }
+  .city-tab:hover { color: var(--navy); }
+  .city-tab.active { color: var(--navy); border-bottom-color: var(--navy); }
+  .city-tab .tab-count { font-size: 11px; background: var(--navy-pale); color: var(--navy); border-radius: 10px; padding: 2px 7px; margin-left: 6px; font-weight: 700; }
+  .city-tab.active .tab-count { background: var(--navy); color: var(--white); }
+
+  /* ── CITY SECTION ── */
+  .city-section { padding: 64px 48px 0; }
+  .city-section:last-child { padding-bottom: 80px; }
+  .city-header {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 36px; padding-bottom: 20px;
+    border-bottom: 2px solid var(--platinum);
+  }
+  .city-info { }
+  .city-name-row { display: flex; align-items: center; gap: 14px; }
+  .city-flag {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: var(--navy); display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .city-name { font-size: 30px; color: var(--navy); }
+  .city-sub { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
+  .city-sub strong { color: var(--navy); }
+  .view-all-btn {
+    background: transparent; border: 2px solid var(--navy);
+    border-radius: 8px; padding: 10px 22px;
+    font-size: 14px; font-weight: 600; color: var(--navy);
+    cursor: pointer; font-family: 'Inter', sans-serif;
+    transition: all 0.2s; text-decoration: none; display: inline-block;
+  }
+  .view-all-btn:hover { background: var(--navy); color: var(--white); }
+
+  /* ── PROPERTY GRID ── */
+  .property-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px; }
+
+  /* Featured property — spans 2 cols */
+  .prop-card {
+    background: var(--white); border-radius: 16px;
+    overflow: hidden; box-shadow: var(--shadow);
+    transition: box-shadow 0.3s, transform 0.3s;
+    cursor: pointer;
+  }
+  .prop-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); }
+  .prop-card.featured { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; }
+
+  /* photo placeholder */
+  .prop-photo {
+    position: relative; overflow: hidden;
+    background: var(--cream-dark);
+  }
+  .prop-photo-inner {
+    height: 220px; width: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 64px; position: relative; overflow: hidden;
+  }
+  .prop-card.featured .prop-photo-inner { height: 100%; min-height: 300px; }
+  /* house illustration fills background */
+  .prop-house-bg {
+    position: absolute; inset: 0;
+    display: flex; align-items: flex-end; justify-content: center;
+    overflow: hidden;
+  }
+
+  /* CSS House Illustrations — unique per "style" */
+  .style-colonial { background: linear-gradient(180deg, #d4e8f0 0%, #e8d4c0 100%); }
+  .style-colonial .sky { background: linear-gradient(180deg,#87ceeb,#c8e6f5); position:absolute;inset:0; }
+  .style-colonial .ground { position:absolute;bottom:0;left:0;right:0;height:40px;background:#8db87a; }
+  .style-colonial .house-body { position:absolute;bottom:40px;left:50%;transform:translateX(-50%);width:140px;height:100px;background:#e8ddd0;border:2px solid #c8b8a0; }
+  .style-colonial .house-roof { position:absolute;bottom:140px;left:50%;transform:translateX(-50%);border-left:80px solid transparent;border-right:80px solid transparent;border-bottom:50px solid #8b4a3a; }
+  .style-colonial .house-door { position:absolute;bottom:40px;left:50%;transform:translateX(-50%);width:24px;height:40px;background:#5a3a2a;border-radius:12px 12px 0 0; }
+  .style-colonial .house-win { position:absolute;width:22px;height:22px;background:#87ceeb;border:2px solid #c8b8a0;border-radius:2px; }
+  .style-colonial .win1 { bottom:90px;left:calc(50% - 50px); }
+  .style-colonial .win2 { bottom:90px;left:calc(50% + 28px); }
+  .style-colonial .tree { position:absolute;bottom:40px; }
+  .style-colonial .tree::before { content:'';display:block;width:0;height:0;border-left:20px solid transparent;border-right:20px solid transparent;border-bottom:50px solid #3a7a3a; }
+  .style-colonial .tree::after { content:'';display:block;width:8px;height:16px;background:#5a3a1a;margin:0 auto; }
+  .style-colonial .tree-l { left:10%; }
+  .style-colonial .tree-r { right:10%; }
+
+  .style-modern { background: linear-gradient(180deg,#e8eef4,#f0e8dc); }
+  .style-modern .sky { background:linear-gradient(180deg,#b8d4e8,#dce8f4);position:absolute;inset:0; }
+  .style-modern .ground { position:absolute;bottom:0;left:0;right:0;height:30px;background:#c8d4b8; }
+  .style-modern .m-body { position:absolute;bottom:30px;left:50%;transform:translateX(-50%);width:160px;height:90px;background:#f4f0ec;border:2px solid #d4c8b8; }
+  .style-modern .m-roof { position:absolute;bottom:120px;left:50%;transform:translateX(-50%);width:170px;height:14px;background:#4a4a4a; }
+  .style-modern .m-garage { position:absolute;bottom:30px;left:calc(50% + 50px);width:50px;height:60px;background:#e8e0d4;border:2px solid #d4c8b8; }
+  .style-modern .m-door { position:absolute;bottom:30px;left:calc(50% - 14px);width:28px;height:50px;background:#6a6a6a; }
+  .style-modern .m-win-strip { position:absolute;bottom:100px;left:50%;transform:translateX(-50%);width:120px;height:28px;background:#87ceeb;border:2px solid #d4c8b8; }
+
+  .style-cape { background:linear-gradient(180deg,#dce8e0,#e8dcd0); }
+  .style-cape .sky { background:linear-gradient(180deg,#a8c8d8,#c8dce8);position:absolute;inset:0; }
+  .style-cape .ground { position:absolute;bottom:0;left:0;right:0;height:35px;background:#a0b890; }
+  .style-cape .c-body { position:absolute;bottom:35px;left:50%;transform:translateX(-50%);width:130px;height:75px;background:#f0e8dc;border:2px solid #d0c0a8; }
+  .style-cape .c-roof { position:absolute;bottom:110px;left:50%;transform:translateX(-50%);border-left:90px solid transparent;border-right:90px solid transparent;border-bottom:70px solid #6a8060; }
+  .style-cape .c-chimney { position:absolute;bottom:165px;left:calc(50% + 20px);width:16px;height:30px;background:#8a6a58; }
+  .style-cape .c-door { position:absolute;bottom:35px;left:50%;transform:translateX(-50%);width:22px;height:38px;background:#6a4a2a;border-radius:11px 11px 0 0; }
+  .style-cape .c-win { position:absolute;width:18px;height:18px;background:#c8e0f0;border:2px solid #d0c0a8;border-radius:2px; }
+  .style-cape .cw1 { bottom:82px;left:calc(50%-50px); }
+  .style-cape .cw2 { bottom:82px;left:calc(50%+32px); }
+  .style-cape .cw3 { bottom:142px;left:calc(50%-16px); }
+
+  .style-ranch { background:linear-gradient(180deg,#e4ecd8,#ece4d4); }
+  .style-ranch .sky { background:linear-gradient(180deg,#90c0d4,#b4d4e4);position:absolute;inset:0; }
+  .style-ranch .ground { position:absolute;bottom:0;left:0;right:0;height:28px;background:#90a878; }
+  .style-ranch .r-body { position:absolute;bottom:28px;left:50%;transform:translateX(-50%);width:200px;height:65px;background:#ede4d8;border:2px solid #ccc0ac; }
+  .style-ranch .r-roof { position:absolute;bottom:93px;left:50%;transform:translateX(-50%);width:216px;height:16px;background:#7a5848; }
+  .style-ranch .r-roof::before { content:'';position:absolute;top:-20px;left:0;right:0;height:20px;background:inherit;clip-path:polygon(0 100%,50% 0,100% 100%); }
+  .style-ranch .r-garage { position:absolute;bottom:28px;right:calc(50%-100px);width:60px;height:50px;background:#e0d8cc;border:2px solid #ccc0ac; }
+  .style-ranch .r-garage-door { position:absolute;bottom:28px;right:calc(50%-98px);width:58px;height:42px;background:#c8c0b4;border:1px solid #aaa094; }
+  .style-ranch .r-door { position:absolute;bottom:28px;left:calc(50%-14px);width:28px;height:46px;background:#7a5038; }
+  .style-ranch .r-win { position:absolute;bottom:62px;width:26px;height:22px;background:#a0c8e0;border:2px solid #ccc0ac; }
+  .style-ranch .rw1 { left:calc(50%-70px); }
+  .style-ranch .rw2 { left:calc(50%+44px); }
+
+  .style-tudor { background:linear-gradient(180deg,#d8e0e8,#e4d8c8); }
+  .style-tudor .sky { background:linear-gradient(180deg,#a0b4c8,#c0ccd8);position:absolute;inset:0; }
+  .style-tudor .ground { position:absolute;bottom:0;left:0;right:0;height:32px;background:#88a068; }
+  .style-tudor .t-body { position:absolute;bottom:32px;left:50%;transform:translateX(-50%);width:144px;height:95px;background:#f0e8dc;border:2px solid #c8b8a0; }
+  .style-tudor .t-beams { position:absolute;bottom:32px;left:50%;transform:translateX(-50%);width:144px;height:95px; }
+  .style-tudor .t-beams::before,.style-tudor .t-beams::after { content:'';position:absolute;background:rgba(80,50,30,0.4);width:100%; }
+  .style-tudor .t-beams::before { height:3px;top:30px; }
+  .style-tudor .t-beams::after { height:3px;top:60px; }
+  .style-tudor .t-roof { position:absolute;bottom:127px;left:50%;transform:translateX(-50%);border-left:84px solid transparent;border-right:84px solid transparent;border-bottom:55px solid #5a3a2a; }
+  .style-tudor .t-door { position:absolute;bottom:32px;left:50%;transform:translateX(-50%);width:26px;height:44px;background:#4a2a1a;border-radius:13px 13px 0 0; }
+  .style-tudor .t-win { position:absolute;width:20px;height:26px;background:#90b8d0;border:2px solid #c8b8a0; }
+  .style-tudor .tw1 { bottom:88px;left:calc(50%-52px); }
+  .style-tudor .tw2 { bottom:88px;left:calc(50%+32px); }
+
+  .style-victorian { background:linear-gradient(180deg,#dce4ec,#ece0d4); }
+  .style-victorian .sky { background:linear-gradient(180deg,#98b4cc,#b8ccd8);position:absolute;inset:0; }
+  .style-victorian .ground { position:absolute;bottom:0;left:0;right:0;height:30px;background:#94a870; }
+  .style-victorian .v-body { position:absolute;bottom:30px;left:50%;transform:translateX(-50%);width:120px;height:110px;background:#f4eee8;border:2px solid #c8b8a4; }
+  .style-victorian .v-tower { position:absolute;bottom:140px;left:calc(50%+10px);width:44px;height:50px;background:#f4eee8;border:2px solid #c8b8a4; }
+  .style-victorian .v-turret { position:absolute;bottom:190px;left:calc(50%+10px);border-left:24px solid transparent;border-right:24px solid transparent;border-bottom:30px solid #8a4a5a; }
+  .style-victorian .v-roof { position:absolute;bottom:140px;left:50%;transform:translateX(-50%);border-left:70px solid transparent;border-right:70px solid transparent;border-bottom:40px solid #6a4a5a; }
+  .style-victorian .v-door { position:absolute;bottom:30px;left:50%;transform:translateX(-50%);width:24px;height:42px;background:#6a3a28;border-radius:12px 12px 0 0; }
+  .style-victorian .v-win { position:absolute;width:16px;height:22px;background:#a8c8e0;border:2px solid #c8b8a4;border-radius:8px 8px 0 0; }
+  .style-victorian .vw1 { bottom:92px;left:calc(50%-42px); }
+  .style-victorian .vw2 { bottom:92px;left:calc(50%+26px); }
+  .style-victorian .vw3 { bottom:168px;left:calc(50%+20px); }
+
+  /* badge */
+  .prop-badge {
+    position: absolute; top: 14px; left: 14px;
+    background: var(--navy); color: var(--white);
+    font-size: 11px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 6px;
+  }
+  .prop-badge.new { background: var(--navy-dark); border: 1px solid var(--platinum); }
+  .prop-badge.open { background: #1a5c38; }
+  .prop-badge.pending { background: #7a3010; }
+
+  .prop-save {
+    position: absolute; top: 14px; right: 14px;
+    width: 34px; height: 34px; border-radius: 50%;
+    background: rgba(255,255,255,0.9); border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; font-size: 16px;
+    transition: all 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .prop-save:hover { background: var(--white); transform: scale(1.1); }
+
+  /* price tag */
+  .prop-price-tag {
+    position: absolute; bottom: 14px; left: 14px;
+    background: rgba(17,40,80,0.92);
+    color: var(--white); border-radius: 8px;
+    padding: 8px 14px;
+  }
+  .prop-price-tag .price { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; line-height: 1; }
+  .prop-price-tag .price-sub { font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 2px; }
+
+  .prop-info { padding: 20px 22px 22px; }
+  .prop-address { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .prop-city { font-size: 13px; color: var(--text-muted); margin-bottom: 14px; }
+  .prop-specs { display: flex; gap: 18px; margin-bottom: 16px; }
+  .spec { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-muted); }
+  .spec-icon { font-size: 15px; }
+  .spec strong { color: var(--navy); font-weight: 600; }
+  .prop-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .prop-tag { font-size: 11px; background: var(--platinum-light); border: 1px solid var(--platinum); border-radius: 4px; padding: 3px 9px; color: var(--text-muted); font-weight: 500; }
+  .prop-tag.gold { background: var(--navy-pale); border-color: var(--navy); color: var(--navy); }
+
+  /* featured card overrides */
+  .prop-card.featured .prop-photo { min-height: 320px; }
+  .prop-card.featured .prop-photo-inner { height: 100%; }
+  .prop-card.featured .prop-info { padding: 32px 28px; display: flex; flex-direction: column; justify-content: center; }
+  .prop-card.featured .prop-address { font-size: 20px; margin-bottom: 6px; }
+  .prop-card.featured .prop-price-tag .price { font-size: 28px; }
+  .prop-card.featured .prop-specs { margin-bottom: 20px; }
+  .featured-desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
+  .tour-btn {
+    background: var(--navy); color: var(--white);
+    border: none; border-radius: 8px; padding: 13px 24px;
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    font-family: 'Inter', sans-serif; width: fit-content;
+    transition: background 0.2s;
+  }
+  .tour-btn:hover { background: var(--navy-mid); }
+
+  /* ── MAP BANNER ── */
+  .map-banner {
+    margin: 48px 48px 0;
+    border-radius: 20px; overflow: hidden;
+    background: var(--navy);
+    display: grid; grid-template-columns: 1fr 380px;
+    min-height: 280px;
+  }
+  .map-visual {
+    position: relative; overflow: hidden;
+    background: var(--navy-dark);
+  }
+  /* Fairfield County SVG map */
+  .map-visual svg { width: 100%; height: 100%; opacity: 0.8; }
+  .map-content {
+    padding: 40px 44px; display: flex; flex-direction: column; justify-content: center;
+  }
+  .map-content h3 { font-size: 28px; color: var(--white); margin-bottom: 12px; }
+  .map-content p { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 24px; }
+  .map-cities { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .map-city-pill { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 6px 14px; font-size: 13px; color: rgba(255,255,255,0.85); }
+  .map-city-pill.active { background: var(--white); border-color: var(--white); color: var(--navy); font-weight: 600; }
+  .map-cta { background: var(--white); color: var(--navy); border: none; border-radius: 8px; padding: 13px 24px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; width: fit-content; transition: background 0.2s; }
+  .map-cta:hover { background: var(--platinum-light); }
+
+  /* ── WHY MC ── */
+  .why-section { background: var(--platinum-light); }
+  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .why-card { background: var(--white); border-radius: 16px; padding: 32px 28px; box-shadow: var(--shadow); border-top: 4px solid var(--navy); }
+  .why-icon { font-size: 36px; margin-bottom: 16px; }
+  .why-card h3 { font-size: 20px; color: var(--navy); margin-bottom: 10px; }
+  .why-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+  /* ── AGENTS ── */
+  .agents-section { background: var(--navy); }
+  .agents-section .section-header h2 { color: var(--white); }
+  .agents-section .section-eyebrow { color: var(--platinum); }
+  .agents-section .section-header p { color: rgba(255,255,255,0.65); }
+  .agents-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .agent-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); border-radius: 16px; padding: 28px 24px; text-align: center; transition: background 0.2s; }
+  .agent-card:hover { background: rgba(255,255,255,0.14); }
+  .agent-avatar { width: 72px; height: 72px; border-radius: 50%; background: var(--white); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--navy); margin: 0 auto 16px; border: 3px solid rgba(255,255,255,0.3); }
+  .agent-name { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+  .agent-title { font-size: 12px; color: var(--platinum); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+  .agent-stats { display: flex; gap: 16px; justify-content: center; margin-bottom: 16px; }
+  .agent-stat .num { font-size: 18px; font-weight: 700; color: var(--platinum-light); font-family: 'Playfair Display', serif; }
+  .agent-stat .lbl { font-size: 10px; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 1px; }
+  .agent-contact { background: var(--white); border: 1px solid var(--platinum); border-radius: 6px; padding: 8px 16px; font-size: 13px; color: var(--navy); cursor: pointer; font-family: 'Inter', sans-serif; width: 100%; font-weight: 600; transition: background 0.2s; }
+  .agent-contact:hover { background: var(--platinum-light); }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .testi-card { background: var(--white); border-radius: 16px; padding: 32px 28px; box-shadow: var(--shadow); }
+  .testi-stars { color: var(--navy); font-size: 18px; margin-bottom: 16px; letter-spacing: 2px; }
+  .testi-quote { font-size: 15px; color: var(--navy); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--white); flex-shrink: 0; }
+  .testi-name { font-size: 14px; font-weight: 700; color: var(--navy); }
+  .testi-loc { font-size: 12px; color: var(--text-muted); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy-dark);
+    padding: 64px 48px 32px;
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+  .footer-brand .logo-name { color: var(--white); font-size: 18px; }
+  .footer-brand .logo-sub { margin-top: 2px; }
+  .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; margin-top: 16px; max-width: 280px; }
+  .footer-col h4 { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--white); margin-bottom: 16px; }
+  .footer-col a { display: block; font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--gold-light); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 28px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.35); }
+  .footer-badges { display: flex; gap: 10px; }
+  .footer-badge { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 6px 12px; font-size: 11px; color: rgba(255,255,255,0.4); font-weight: 600; letter-spacing: 1px; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+  .fade-up { animation: fadeUp 0.6s ease both; }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    section, .city-section { padding: 48px 24px 0; }
+    .property-grid { grid-template-columns: 1fr; }
+    .prop-card.featured { grid-column: span 1; display: block; }
+    .why-grid, .agents-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .map-banner { grid-template-columns: 1fr; margin: 32px 24px 0; }
+    .map-visual { min-height: 200px; }
+    .city-tabs-wrap { padding: 0 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="logo-mark">MC</div>
+    <div class="logo-text">
+      <span class="logo-name">Marr Caruso Realty Group</span>
+      <span class="logo-sub">Est. 1996 · Fairfield County, CT</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#" class="active">Buy</a>
+    <a href="#">Sell</a>
+    <a href="#">Neighborhoods</a>
+    <a href="#">Market Reports</a>
+    <a href="#">About</a>
+  </div>
+  <a class="nav-cta" href="#">Contact an Agent</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding:0;">
+  <!-- New England Colonial Illustration -->
+  <svg class="hero-illustration" viewBox="0 0 1440 680" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <!-- SKY — morning blue gradient -->
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#4a7ab5"/>
+        <stop offset="55%" stop-color="#7aadd4"/>
+        <stop offset="100%" stop-color="#b8d4e8"/>
+      </linearGradient>
+      <linearGradient id="lawn" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#5a7a48"/>
+        <stop offset="100%" stop-color="#3a5830"/>
+      </linearGradient>
+      <linearGradient id="siding" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#f8f6f2"/>
+        <stop offset="100%" stop-color="#e8e4dc"/>
+      </linearGradient>
+      <linearGradient id="roof" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#2a2a2a"/>
+        <stop offset="100%" stop-color="#1a1a1a"/>
+      </linearGradient>
+      <linearGradient id="treeL" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#c0562a"/>
+        <stop offset="50%" stop-color="#d4783a"/>
+        <stop offset="100%" stop-color="#8a3a18"/>
+      </linearGradient>
+      <linearGradient id="treeR" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#c87828"/>
+        <stop offset="50%" stop-color="#b05820"/>
+        <stop offset="100%" stop-color="#784018"/>
+      </linearGradient>
+      <linearGradient id="treeEver" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#2a4a28"/>
+        <stop offset="100%" stop-color="#1a3018"/>
+      </linearGradient>
+      <linearGradient id="shadow" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="rgba(0,0,0,0)"/>
+        <stop offset="100%" stop-color="rgba(0,0,0,0.18)"/>
+      </linearGradient>
+      <filter id="softshadow">
+        <feDropShadow dx="4" dy="8" stdDeviation="6" flood-color="rgba(0,0,0,0.25)"/>
+      </filter>
+      <filter id="cloudshadow">
+        <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="rgba(0,0,0,0.10)"/>
+      </filter>
+    </defs>
+
+    <!-- SKY -->
+    <rect width="1440" height="680" fill="url(#sky)"/>
+
+    <!-- SUN glow -->
+    <ellipse cx="820" cy="80" rx="90" ry="90" fill="rgba(255,240,200,0.18)"/>
+    <ellipse cx="820" cy="80" rx="55" ry="55" fill="rgba(255,240,180,0.25)"/>
+    <circle cx="820" cy="80" r="32" fill="rgba(255,240,200,0.55)"/>
+
+    <!-- CLOUDS -->
+    <g filter="url(#cloudshadow)" opacity="0.92">
+      <ellipse cx="200" cy="110" rx="100" ry="38" fill="#f0f4f8"/>
+      <ellipse cx="160" cy="120" rx="70" ry="30" fill="#f4f8fc"/>
+      <ellipse cx="250" cy="118" rx="78" ry="28" fill="#f4f8fc"/>
+      <ellipse cx="200" cy="130" rx="90" ry="22" fill="#eef2f6"/>
+    </g>
+    <g filter="url(#cloudshadow)" opacity="0.85">
+      <ellipse cx="1100" cy="90" rx="120" ry="42" fill="#f2f6fa"/>
+      <ellipse cx="1050" cy="102" rx="80" ry="32" fill="#f6f9fc"/>
+      <ellipse cx="1155" cy="100" rx="88" ry="30" fill="#f6f9fc"/>
+      <ellipse cx="1100" cy="112" rx="105" ry="22" fill="#eef2f6"/>
+    </g>
+    <g filter="url(#cloudshadow)" opacity="0.78">
+      <ellipse cx="600" cy="65" rx="80" ry="28" fill="#f4f8fb"/>
+      <ellipse cx="570" cy="74" rx="55" ry="22" fill="#f8fbfe"/>
+      <ellipse cx="635" cy="72" rx="60" ry="20" fill="#f8fbfe"/>
+    </g>
+
+    <!-- FAR BACKGROUND — rolling hills -->
+    <ellipse cx="300" cy="430" rx="400" ry="120" fill="#6a8a5a" opacity="0.45"/>
+    <ellipse cx="1140" cy="440" rx="380" ry="110" fill="#5a7848" opacity="0.45"/>
+    <ellipse cx="720" cy="450" rx="500" ry="100" fill="#607a50" opacity="0.35"/>
+
+    <!-- TREELINE background (far) -->
+    <!-- Evergreen silhouettes far left -->
+    <polygon points="50,380 70,280 90,380" fill="#2a4028" opacity="0.55"/>
+    <polygon points="80,390 104,300 128,390" fill="#3a5038" opacity="0.5"/>
+    <polygon points="115,385 136,308 157,385" fill="#2a4028" opacity="0.48"/>
+    <!-- Far right -->
+    <polygon points="1300,385 1322,295 1344,385" fill="#2a4028" opacity="0.5"/>
+    <polygon points="1330,390 1355,305 1380,390" fill="#3a5038" opacity="0.48"/>
+    <polygon points="1358,382 1378,312 1398,382" fill="#2a4028" opacity="0.45"/>
+
+    <!-- LAWN -->
+    <ellipse cx="720" cy="680" rx="900" ry="200" fill="url(#lawn)"/>
+    <rect x="0" y="560" width="1440" height="120" fill="url(#lawn)"/>
+    <!-- Lawn shadow under house -->
+    <ellipse cx="720" cy="578" rx="480" ry="28" fill="rgba(0,0,0,0.12)"/>
+
+    <!-- STONE WALL / PATH -->
+    <!-- Brick walkway from door to bottom -->
+    <rect x="660" y="530" width="100" height="140" fill="#9a7858" opacity="0.7"/>
+    <!-- Brick pattern lines -->
+    <line x1="660" y1="548" x2="760" y2="548" stroke="#7a5a3a" stroke-width="1" opacity="0.5"/>
+    <line x1="660" y1="566" x2="760" y2="566" stroke="#7a5a3a" stroke-width="1" opacity="0.5"/>
+    <line x1="660" y1="584" x2="760" y2="584" stroke="#7a5a3a" stroke-width="1" opacity="0.5"/>
+    <line x1="660" y1="602" x2="760" y2="602" stroke="#7a5a3a" stroke-width="1" opacity="0.5"/>
+    <line x1="660" y1="620" x2="760" y2="620" stroke="#7a5a3a" stroke-width="1" opacity="0.5"/>
+    <line x1="710" y1="530" x2="710" y2="670" stroke="#7a5a3a" stroke-width="1" opacity="0.4"/>
+    <!-- Walkway widens at bottom -->
+    <polygon points="620,670 820,670 760,620 660,620" fill="#9a7858" opacity="0.6"/>
+
+    <!-- LOW STONE WALL flanking walkway -->
+    <rect x="320" y="550" width="320" height="22" rx="4" fill="#8a8070"/>
+    <rect x="800" y="550" width="320" height="22" rx="4" fill="#8a8070"/>
+    <!-- Stone texture lines -->
+    <line x1="360" y1="550" x2="360" y2="572" stroke="#706860" stroke-width="1"/>
+    <line x1="410" y1="550" x2="410" y2="572" stroke="#706860" stroke-width="1"/>
+    <line x1="470" y1="550" x2="470" y2="572" stroke="#706860" stroke-width="1"/>
+    <line x1="530" y1="550" x2="530" y2="572" stroke="#706860" stroke-width="1"/>
+    <line x1="590" y1="550" x2="590" y2="572" stroke="#706860" stroke-width="1"/>
+    <line x1="840" y1="550" x2="840" y2="572" stroke="#706860" stroke-width="1"/>
+    <line x1="900" y1="550" x2="900" y2="572" stroke="#706860" stroke-width="1"/>
+    <line x1="960" y1="550" x2="960" y2="572" stroke="#706860" stroke-width="1"/>
+    <line x1="1020" y1="550" x2="1020" y2="572" stroke="#706860" stroke-width="1"/>
+    <line x1="1080" y1="550" x2="1080" y2="572" stroke="#706860" stroke-width="1"/>
+
+    <!-- ═══════════════════════════════════════════════════
+         COLONIAL HOUSE — 5-bay symmetrical New England
+         ═══════════════════════════════════════════════════ -->
+    <g filter="url(#softshadow)">
+
+    <!-- FOUNDATION -->
+    <rect x="300" y="540" width="840" height="30" fill="#8a8078"/>
+
+    <!-- MAIN BODY — white clapboard siding -->
+    <rect x="300" y="280" width="840" height="260" fill="url(#siding)"/>
+    <!-- Clapboard horizontal lines — evenly spaced -->
+    <g stroke="#d8d4cc" stroke-width="0.8" opacity="0.6">
+      <line x1="300" y1="295" x2="1140" y2="295"/>
+      <line x1="300" y1="310" x2="1140" y2="310"/>
+      <line x1="300" y1="325" x2="1140" y2="325"/>
+      <line x1="300" y1="340" x2="1140" y2="340"/>
+      <line x1="300" y1="355" x2="1140" y2="355"/>
+      <line x1="300" y1="370" x2="1140" y2="370"/>
+      <line x1="300" y1="385" x2="1140" y2="385"/>
+      <line x1="300" y1="400" x2="1140" y2="400"/>
+      <line x1="300" y1="415" x2="1140" y2="415"/>
+      <line x1="300" y1="430" x2="1140" y2="430"/>
+      <line x1="300" y1="445" x2="1140" y2="445"/>
+      <line x1="300" y1="460" x2="1140" y2="460"/>
+      <line x1="300" y1="475" x2="1140" y2="475"/>
+      <line x1="300" y1="490" x2="1140" y2="490"/>
+      <line x1="300" y1="505" x2="1140" y2="505"/>
+      <line x1="300" y1="520" x2="1140" y2="520"/>
+      <line x1="300" y1="535" x2="1140" y2="535"/>
+    </g>
+
+    <!-- ROOF — dark charcoal gable -->
+    <!-- Main ridge line is at y=160, peak x=720 -->
+    <polygon points="260,280 720,145 1180,280" fill="url(#roof)"/>
+    <!-- Roof edge trim (fascia) -->
+    <polygon points="260,280 720,145 1180,280 1180,293 720,158 260,293" fill="#3a3a3a"/>
+    <!-- Roof shadow on upper siding -->
+    <rect x="300" y="280" width="840" height="24" fill="rgba(0,0,0,0.07)"/>
+
+    <!-- DORMER WINDOWS — 3 dormers on roof -->
+    <!-- Left dormer -->
+    <rect x="440" y="208" width="80" height="56" fill="url(#siding)"/>
+    <polygon points="432,212 480,182 528,212" fill="#2a2a2a"/>
+    <rect x="450" y="218" width="24" height="28" fill="#4a6a8a" opacity="0.85"/>
+    <rect x="485" y="218" width="24" height="28" fill="#4a6a8a" opacity="0.85"/>
+    <line x1="462" y1="218" x2="462" y2="246" stroke="#2a2a2a" stroke-width="1.5"/>
+    <line x1="450" y1="232" x2="474" y2="232" stroke="#2a2a2a" stroke-width="1.5"/>
+    <line x1="485" y1="232" x2="509" y2="232" stroke="#2a2a2a" stroke-width="1.5"/>
+    <!-- Center dormer -->
+    <rect x="660" y="195" width="120" height="68" fill="url(#siding)"/>
+    <polygon points="650,200 720,165 790,200" fill="#2a2a2a"/>
+    <rect x="672" y="208" width="28" height="38" fill="#4a6a8a" opacity="0.85"/>
+    <rect x="720" y="208" width="28" height="38" fill="#4a6a8a" opacity="0.85"/>
+    <line x1="686" y1="208" x2="686" y2="246" stroke="#2a2a2a" stroke-width="1.5"/>
+    <line x1="672" y1="227" x2="700" y2="227" stroke="#2a2a2a" stroke-width="1.5"/>
+    <line x1="720" y1="227" x2="748" y2="227" stroke="#2a2a2a" stroke-width="1.5"/>
+    <!-- Right dormer -->
+    <rect x="880" y="208" width="80" height="56" fill="url(#siding)"/>
+    <polygon points="872,212 920,182 968,212" fill="#2a2a2a"/>
+    <rect x="892" y="218" width="24" height="28" fill="#4a6a8a" opacity="0.85"/>
+    <rect x="927" y="218" width="24" height="28" fill="#4a6a8a" opacity="0.85"/>
+    <line x1="904" y1="218" x2="904" y2="246" stroke="#2a2a2a" stroke-width="1.5"/>
+    <line x1="892" y1="232" x2="916" y2="232" stroke="#2a2a2a" stroke-width="1.5"/>
+    <line x1="927" y1="232" x2="951" y2="232" stroke="#2a2a2a" stroke-width="1.5"/>
+
+    <!-- CHIMNEYS — two, symmetric, brick red -->
+    <!-- Left chimney -->
+    <rect x="510" y="148" width="36" height="118" fill="#8a3a28"/>
+    <rect x="504" y="145" width="48" height="12" fill="#7a2a18"/>
+    <!-- Brick texture lines -->
+    <g stroke="#7a2a18" stroke-width="0.8" opacity="0.5">
+      <line x1="510" y1="164" x2="546" y2="164"/>
+      <line x1="510" y1="180" x2="546" y2="180"/>
+      <line x1="510" y1="196" x2="546" y2="196"/>
+      <line x1="510" y1="212" x2="546" y2="212"/>
+      <line x1="528" y1="148" x2="528" y2="266"/>
+    </g>
+    <!-- Right chimney -->
+    <rect x="894" y="148" width="36" height="118" fill="#8a3a28"/>
+    <rect x="888" y="145" width="48" height="12" fill="#7a2a18"/>
+    <g stroke="#7a2a18" stroke-width="0.8" opacity="0.5">
+      <line x1="894" y1="164" x2="930" y2="164"/>
+      <line x1="894" y1="180" x2="930" y2="180"/>
+      <line x1="894" y1="196" x2="930" y2="196"/>
+      <line x1="894" y1="212" x2="930" y2="212"/>
+      <line x1="912" y1="148" x2="912" y2="266"/>
+    </g>
+
+    <!-- CORNICE / FRIEZE at roofline -->
+    <rect x="298" y="278" width="844" height="10" fill="#e8e4de"/>
+    <rect x="298" y="286" width="844" height="4" fill="#c8c4bc"/>
+
+    <!-- ═══ 5-BAY WINDOWS — second floor ═══ -->
+    <!-- Bay spacing: 300 + 84 = 384 start, each bay 168px wide, windows 60x80 -->
+    <!-- Bay 1 (far left) -->
+    <rect x="348" y="310" width="60" height="80" fill="#c8dce8"/>
+    <rect x="346" y="308" width="64" height="84" fill="none" stroke="#1a1a1a" stroke-width="3"/>
+    <rect x="370" y="308" width="3" height="84" fill="#1a1a1a"/><!-- mullion -->
+    <rect x="346" y="349" width="64" height="3" fill="#1a1a1a"/><!-- rail -->
+    <!-- shutters -->
+    <rect x="318" y="306" width="26" height="88" rx="2" fill="#1a1a1a"/>
+    <rect x="412" y="306" width="26" height="88" rx="2" fill="#1a1a1a"/>
+
+    <!-- Bay 2 -->
+    <rect x="516" y="310" width="60" height="80" fill="#c8dce8"/>
+    <rect x="514" y="308" width="64" height="84" fill="none" stroke="#1a1a1a" stroke-width="3"/>
+    <rect x="538" y="308" width="3" height="84" fill="#1a1a1a"/>
+    <rect x="514" y="349" width="64" height="3" fill="#1a1a1a"/>
+    <rect x="486" y="306" width="26" height="88" rx="2" fill="#1a1a1a"/>
+    <rect x="580" y="306" width="26" height="88" rx="2" fill="#1a1a1a"/>
+
+    <!-- Bay 3 — CENTER (Palladian window accent) -->
+    <rect x="682" y="306" width="76" height="88" fill="#c8dce8"/>
+    <path d="M 682,306 L 720,284 L 758,306 Z" fill="#e8e4de"/>
+    <ellipse cx="720" cy="306" rx="38" ry="24" fill="#c8dce8" opacity="0.6"/>
+    <rect x="680" y="308" width="80" height="87" fill="none" stroke="#1a1a1a" stroke-width="3"/>
+    <rect x="718" y="308" width="3" height="87" fill="#1a1a1a"/>
+    <rect x="680" y="349" width="80" height="3" fill="#1a1a1a"/>
+    <rect x="650" y="306" width="28" height="92" rx="2" fill="#1a1a1a"/>
+    <rect x="762" y="306" width="28" height="92" rx="2" fill="#1a1a1a"/>
+
+    <!-- Bay 4 -->
+    <rect x="864" y="310" width="60" height="80" fill="#c8dce8"/>
+    <rect x="862" y="308" width="64" height="84" fill="none" stroke="#1a1a1a" stroke-width="3"/>
+    <rect x="886" y="308" width="3" height="84" fill="#1a1a1a"/>
+    <rect x="862" y="349" width="64" height="3" fill="#1a1a1a"/>
+    <rect x="834" y="306" width="26" height="88" rx="2" fill="#1a1a1a"/>
+    <rect x="928" y="306" width="26" height="88" rx="2" fill="#1a1a1a"/>
+
+    <!-- Bay 5 (far right) -->
+    <rect x="1032" y="310" width="60" height="80" fill="#c8dce8"/>
+    <rect x="1030" y="308" width="64" height="84" fill="none" stroke="#1a1a1a" stroke-width="3"/>
+    <rect x="1054" y="308" width="3" height="84" fill="#1a1a1a"/>
+    <rect x="1030" y="349" width="64" height="3" fill="#1a1a1a"/>
+    <rect x="1002" y="306" width="26" height="88" rx="2" fill="#1a1a1a"/>
+    <rect x="1096" y="306" width="26" height="88" rx="2" fill="#1a1a1a"/>
+
+    <!-- ═══ FIRST FLOOR — 4 windows + door ═══ -->
+    <!-- FL Window 1 -->
+    <rect x="348" y="430" width="60" height="90" fill="#c8dce8"/>
+    <rect x="346" y="428" width="64" height="94" fill="none" stroke="#1a1a1a" stroke-width="3"/>
+    <rect x="370" y="428" width="3" height="94" fill="#1a1a1a"/>
+    <rect x="346" y="474" width="64" height="3" fill="#1a1a1a"/>
+    <rect x="318" y="426" width="26" height="100" rx="2" fill="#1a1a1a"/>
+    <rect x="412" y="426" width="26" height="100" rx="2" fill="#1a1a1a"/>
+
+    <!-- FL Window 2 -->
+    <rect x="516" y="430" width="60" height="90" fill="#c8dce8"/>
+    <rect x="514" y="428" width="64" height="94" fill="none" stroke="#1a1a1a" stroke-width="3"/>
+    <rect x="538" y="428" width="3" height="94" fill="#1a1a1a"/>
+    <rect x="514" y="474" width="64" height="3" fill="#1a1a1a"/>
+    <rect x="486" y="426" width="26" height="100" rx="2" fill="#1a1a1a"/>
+    <rect x="580" y="426" width="26" height="100" rx="2" fill="#1a1a1a"/>
+
+    <!-- CENTER ENTRY — Paneled front door with pilasters & pediment -->
+    <!-- Pilasters -->
+    <rect x="672" y="405" width="14" height="138" fill="#e0dcd4"/>
+    <rect x="754" y="405" width="14" height="138" fill="#e0dcd4"/>
+    <!-- Pediment triangle above door -->
+    <polygon points="666,408 720,378 774,408" fill="#e8e4dc"/>
+    <polygon points="670,408 720,384 770,408 770,412 720,388 670,412" fill="#d8d4cc"/>
+    <!-- Transom window -->
+    <rect x="686" y="408" width="68" height="22" fill="#c8dce8"/>
+    <rect x="686" y="408" width="68" height="22" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+    <line x1="702" y1="408" x2="702" y2="430" stroke="#1a1a1a" stroke-width="1.5"/>
+    <line x1="720" y1="408" x2="720" y2="430" stroke="#1a1a1a" stroke-width="1.5"/>
+    <line x1="738" y1="408" x2="738" y2="430" stroke="#1a1a1a" stroke-width="1.5"/>
+    <!-- Door panels -->
+    <rect x="686" y="430" width="68" height="112" fill="#1a1a1a"/>
+    <rect x="692" y="437" width="26" height="36" rx="1" fill="#2a2a2a" stroke="#3a3a3a" stroke-width="1"/>
+    <rect x="722" y="437" width="26" height="36" rx="1" fill="#2a2a2a" stroke="#3a3a3a" stroke-width="1"/>
+    <rect x="692" y="480" width="26" height="52" rx="1" fill="#2a2a2a" stroke="#3a3a3a" stroke-width="1"/>
+    <rect x="722" y="480" width="26" height="52" rx="1" fill="#2a2a2a" stroke="#3a3a3a" stroke-width="1"/>
+    <!-- Door knob -->
+    <circle cx="724" cy="490" r="4" fill="#c8a040"/>
+    <!-- Door frame -->
+    <rect x="684" y="428" width="72" height="116" fill="none" stroke="#c8c4bc" stroke-width="3"/>
+    <!-- Door steps -->
+    <rect x="674" y="540" width="92" height="10" rx="2" fill="#c0b8a8"/>
+    <rect x="680" y="535" width="80" height="8" rx="2" fill="#d0c8b8"/>
+
+    <!-- FL Window 3 -->
+    <rect x="864" y="430" width="60" height="90" fill="#c8dce8"/>
+    <rect x="862" y="428" width="64" height="94" fill="none" stroke="#1a1a1a" stroke-width="3"/>
+    <rect x="886" y="428" width="3" height="94" fill="#1a1a1a"/>
+    <rect x="862" y="474" width="64" height="3" fill="#1a1a1a"/>
+    <rect x="834" y="426" width="26" height="100" rx="2" fill="#1a1a1a"/>
+    <rect x="928" y="426" width="26" height="100" rx="2" fill="#1a1a1a"/>
+
+    <!-- FL Window 4 -->
+    <rect x="1032" y="430" width="60" height="90" fill="#c8dce8"/>
+    <rect x="1030" y="428" width="64" height="94" fill="none" stroke="#1a1a1a" stroke-width="3"/>
+    <rect x="1054" y="428" width="3" height="94" fill="#1a1a1a"/>
+    <rect x="1030" y="474" width="64" height="3" fill="#1a1a1a"/>
+    <rect x="1002" y="426" width="26" height="100" rx="2" fill="#1a1a1a"/>
+    <rect x="1096" y="426" width="26" height="100" rx="2" fill="#1a1a1a"/>
+
+    <!-- Window box planters on first floor windows -->
+    <rect x="344" y="520" width="72" height="10" rx="2" fill="#7a4a28"/>
+    <rect x="512" y="520" width="72" height="10" rx="2" fill="#7a4a28"/>
+    <rect x="860" y="520" width="72" height="10" rx="2" fill="#7a4a28"/>
+    <rect x="1028" y="520" width="72" height="10" rx="2" fill="#7a4a28"/>
+    <!-- Flowers in boxes -->
+    <g opacity="0.85">
+      <circle cx="355" cy="516" r="5" fill="#d44a4a"/>
+      <circle cx="368" cy="514" r="5" fill="#e06060"/>
+      <circle cx="381" cy="516" r="5" fill="#c83a3a"/>
+      <circle cx="394" cy="515" r="5" fill="#d44a4a"/>
+      <circle cx="407" cy="516" r="5" fill="#e06060"/>
+      <circle cx="523" cy="516" r="5" fill="#d44a4a"/>
+      <circle cx="536" cy="514" r="5" fill="#e06060"/>
+      <circle cx="549" cy="516" r="5" fill="#c83a3a"/>
+      <circle cx="562" cy="515" r="5" fill="#d44a4a"/>
+      <circle cx="575" cy="516" r="5" fill="#e06060"/>
+      <circle cx="871" cy="516" r="5" fill="#d44a4a"/>
+      <circle cx="884" cy="514" r="5" fill="#e06060"/>
+      <circle cx="897" cy="516" r="5" fill="#c83a3a"/>
+      <circle cx="910" cy="515" r="5" fill="#d44a4a"/>
+      <circle cx="923" cy="516" r="5" fill="#e06060"/>
+      <circle cx="1039" cy="516" r="5" fill="#d44a4a"/>
+      <circle cx="1052" cy="514" r="5" fill="#e06060"/>
+      <circle cx="1065" cy="516" r="5" fill="#c83a3a"/>
+      <circle cx="1078" cy="515" r="5" fill="#d44a4a"/>
+      <circle cx="1091" cy="516" r="5" fill="#e06060"/>
+    </g>
+
+    <!-- SIDE ADDITION / WING (right) subtle -->
+    <rect x="1140" y="370" width="120" height="200" fill="#eeeae2"/>
+    <polygon points="1130,372 1200,315 1270,372" fill="#2a2a2a" opacity="0.9"/>
+    <g stroke="#d8d4cc" stroke-width="0.7" opacity="0.5">
+      <line x1="1140" y1="385" x2="1260" y2="385"/>
+      <line x1="1140" y1="400" x2="1260" y2="400"/>
+      <line x1="1140" y1="415" x2="1260" y2="415"/>
+      <line x1="1140" y1="430" x2="1260" y2="430"/>
+      <line x1="1140" y1="445" x2="1260" y2="445"/>
+      <line x1="1140" y1="460" x2="1260" y2="460"/>
+      <line x1="1140" y1="475" x2="1260" y2="475"/>
+      <line x1="1140" y1="490" x2="1260" y2="490"/>
+      <line x1="1140" y1="505" x2="1260" y2="505"/>
+      <line x1="1140" y1="520" x2="1260" y2="520"/>
+      <line x1="1140" y1="535" x2="1260" y2="535"/>
+    </g>
+    <rect x="1175" y="430" width="48" height="70" fill="#c0d4e4"/>
+    <rect x="1173" y="428" width="52" height="74" fill="none" stroke="#1a1a1a" stroke-width="2.5"/>
+    <line x1="1199" y1="428" x2="1199" y2="502" stroke="#1a1a1a" stroke-width="1.5"/>
+    <line x1="1173" y1="464" x2="1225" y2="464" stroke="#1a1a1a" stroke-width="1.5"/>
+    <!-- Side wing shutters -->
+    <rect x="1152" y="426" width="20" height="78" rx="2" fill="#1a1a1a"/>
+    <rect x="1226" y="426" width="20" height="78" rx="2" fill="#1a1a1a"/>
+
+    <!-- SIDE ADDITION LEFT (subtle) -->
+    <rect x="180" y="380" width="120" height="190" fill="#eeeae2"/>
+    <polygon points="170,382 240,325 310,382" fill="#2a2a2a" opacity="0.9"/>
+    <g stroke="#d8d4cc" stroke-width="0.7" opacity="0.5">
+      <line x1="180" y1="395" x2="300" y2="395"/>
+      <line x1="180" y1="410" x2="300" y2="410"/>
+      <line x1="180" y1="425" x2="300" y2="425"/>
+      <line x1="180" y1="440" x2="300" y2="440"/>
+      <line x1="180" y1="455" x2="300" y2="455"/>
+      <line x1="180" y1="470" x2="300" y2="470"/>
+      <line x1="180" y1="485" x2="300" y2="485"/>
+      <line x1="180" y1="500" x2="300" y2="500"/>
+      <line x1="180" y1="515" x2="300" y2="515"/>
+      <line x1="180" y1="530" x2="300" y2="530"/>
+    </g>
+    <rect x="216" y="438" width="48" height="70" fill="#c0d4e4"/>
+    <rect x="214" y="436" width="52" height="74" fill="none" stroke="#1a1a1a" stroke-width="2.5"/>
+    <line x1="240" y1="436" x2="240" y2="510" stroke="#1a1a1a" stroke-width="1.5"/>
+    <line x1="214" y1="472" x2="266" y2="472" stroke="#1a1a1a" stroke-width="1.5"/>
+    <rect x="192" y="434" width="20" height="78" rx="2" fill="#1a1a1a"/>
+    <rect x="267" y="434" width="20" height="78" rx="2" fill="#1a1a1a"/>
+
+    </g><!-- end house filter group -->
+
+    <!-- ═══ AUTUMN TREES — Left cluster ═══ -->
+    <!-- Large maple — far left, red-orange -->
+    <rect x="118" y="445" width="16" height="115" fill="#6a4a28"/>
+    <!-- foliage blobs -->
+    <ellipse cx="126" cy="390" rx="90" ry="72" fill="url(#treeL)" opacity="0.92"/>
+    <ellipse cx="80" cy="410" rx="60" ry="48" fill="#b84a20" opacity="0.75"/>
+    <ellipse cx="175" cy="405" rx="58" ry="44" fill="#d07030" opacity="0.78"/>
+    <ellipse cx="126" cy="360" rx="65" ry="50" fill="#c85a28" opacity="0.82"/>
+    <!-- falling leaves -->
+    <ellipse cx="230" cy="470" rx="7" ry="4" fill="#c85a28" opacity="0.7" transform="rotate(-20,230,470)"/>
+    <ellipse cx="210" cy="500" rx="6" ry="3" fill="#d07030" opacity="0.6" transform="rotate(15,210,500)"/>
+    <ellipse cx="195" cy="480" rx="5" ry="3" fill="#b84a20" opacity="0.5" transform="rotate(-35,195,480)"/>
+
+    <!-- Medium tree behind — golden yellow -->
+    <rect x="50" y="470" width="12" height="90" fill="#5a3818"/>
+    <ellipse cx="56" cy="415" rx="62" ry="55" fill="#c8a828" opacity="0.80"/>
+    <ellipse cx="30" cy="435" rx="44" ry="38" fill="#b89020" opacity="0.70"/>
+
+    <!-- Small evergreen left -->
+    <rect x="248" y="490" width="10" height="70" fill="#4a3018"/>
+    <polygon points="215,492 253,368 291,492" fill="url(#treeEver)" opacity="0.88"/>
+    <polygon points="220,530 253,420 286,530" fill="#2a4028" opacity="0.75"/>
+
+    <!-- ═══ AUTUMN TREES — Right cluster ═══ -->
+    <!-- Large maple — far right, deep orange -->
+    <rect x="1298" y="448" width="16" height="112" fill="#6a4a28"/>
+    <ellipse cx="1306" cy="392" rx="90" ry="72" fill="url(#treeR)" opacity="0.92"/>
+    <ellipse cx="1258" cy="412" rx="62" ry="48" fill="#b85820" opacity="0.75"/>
+    <ellipse cx="1350" cy="408" rx="56" ry="44" fill="#c07028" opacity="0.78"/>
+    <ellipse cx="1306" cy="362" rx="64" ry="50" fill="#b84820" opacity="0.82"/>
+    <!-- falling leaves right -->
+    <ellipse cx="1212" cy="474" rx="7" ry="4" fill="#c07028" opacity="0.65" transform="rotate(25,1212,474)"/>
+    <ellipse cx="1228" cy="502" rx="6" ry="3" fill="#b85820" opacity="0.55" transform="rotate(-18,1228,502)"/>
+
+    <!-- Medium golden tree right -->
+    <rect x="1378" y="468" width="12" height="92" fill="#5a3818"/>
+    <ellipse cx="1384" cy="412" rx="65" ry="57" fill="#c8a020" opacity="0.80"/>
+    <ellipse cx="1410" cy="435" rx="48" ry="40" fill="#b89020" opacity="0.68"/>
+
+    <!-- Evergreen right -->
+    <rect x="1182" y="492" width="10" height="68" fill="#4a3018"/>
+    <polygon points="1149,494 1187,370 1225,494" fill="url(#treeEver)" opacity="0.86"/>
+    <polygon points="1154,532 1187,422 1220,532" fill="#2a4028" opacity="0.74"/>
+
+    <!-- FOREGROUND SHRUBS flanking walkway -->
+    <ellipse cx="440" cy="558" rx="72" ry="30" fill="#3a6030" opacity="0.85"/>
+    <ellipse cx="380" cy="562" rx="52" ry="24" fill="#4a7040" opacity="0.75"/>
+    <ellipse cx="500" cy="555" rx="48" ry="22" fill="#386028" opacity="0.80"/>
+    <ellipse cx="1000" cy="558" rx="72" ry="30" fill="#3a6030" opacity="0.85"/>
+    <ellipse cx="1060" cy="562" rx="52" ry="24" fill="#4a7040" opacity="0.75"/>
+    <ellipse cx="940" cy="555" rx="48" ry="22" fill="#386028" opacity="0.80"/>
+
+    <!-- LAMPPOST flanking walk -->
+    <rect x="625" y="488" width="6" height="72" fill="#2a2a2a"/>
+    <rect x="618" y="484" width="20" height="8" rx="2" fill="#2a2a2a"/>
+    <ellipse cx="628" cy="482" rx="12" ry="8" fill="#d4b84a" opacity="0.7"/>
+    <rect x="800" y="488" width="6" height="72" fill="#2a2a2a"/>
+    <rect x="793" y="484" width="20" height="8" rx="2" fill="#2a2a2a"/>
+    <ellipse cx="803" cy="482" rx="12" ry="8" fill="#d4b84a" opacity="0.7"/>
+
+    <!-- FOREGROUND GRASS texture -->
+    <rect x="0" y="600" width="1440" height="80" fill="#3a5830" opacity="0.9"/>
+    <!-- Grass blades hints -->
+    <g stroke="#4a6a38" stroke-width="1.5" opacity="0.4">
+      <line x1="100" y1="600" x2="96" y2="585"/>
+      <line x1="200" y1="600" x2="204" y2="582"/>
+      <line x1="900" y1="600" x2="896" y2="584"/>
+      <line x1="1100" y1="600" x2="1104" y2="583"/>
+      <line x1="1300" y1="600" x2="1296" y2="585"/>
+    </g>
+  </svg>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up">📍 Fairfield County's Trusted Brokerage Since 1996</div>
+    <h1 class="fade-up delay-1">Find Your <em>Perfect Home</em><br>in Fairfield County</h1>
+    <p class="fade-up delay-2">From Stamford to Greenwich, Westport to Darien — we know every street, school district, and hidden gem in Connecticut's Gold Coast.</p>
+    <div class="search-bar fade-up delay-3">
+      <span class="search-icon">🔍</span>
+      <input class="search-input" type="text" placeholder="Search by city, ZIP, or address...">
+      <div class="search-divider"></div>
+      <select class="search-select">
+        <option>For Sale</option>
+        <option>For Rent</option>
+        <option>Sold</option>
+      </select>
+      <div class="search-divider"></div>
+      <select class="search-select">
+        <option>Any Price</option>
+        <option>Under $500K</option>
+        <option>$500K–$1M</option>
+        <option>$1M–$2M</option>
+        <option>$2M+</option>
+      </select>
+      <button class="search-btn">Search Homes</button>
+    </div>
+    <div class="search-tags">
+      <span class="search-tag">🏡 Stamford</span>
+      <span class="search-tag">🌿 Greenwich</span>
+      <span class="search-tag">🌊 Westport</span>
+      <span class="search-tag">🏫 Darien</span>
+      <span class="search-tag">⚓ Norwalk</span>
+      <span class="search-tag">🌳 New Canaan</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <div class="stat-num">$2.4B+</div>
+    <div class="stat-label">Total Sales Volume</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">847</div>
+    <div class="stat-label">Homes Sold</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">27 yrs</div>
+    <div class="stat-label">In Fairfield County</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">4.9 ★</div>
+    <div class="stat-label">Client Rating</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">98%</div>
+    <div class="stat-label">List-to-Sale Ratio</div>
+  </div>
+</div>
+
+<!-- CITY TABS -->
+<div class="city-tabs-wrap">
+  <div class="city-tabs">
+    <button class="city-tab active" onclick="scrollToCity('stamford', this)">Stamford <span class="tab-count">12</span></button>
+    <button class="city-tab" onclick="scrollToCity('greenwich', this)">Greenwich <span class="tab-count">8</span></button>
+    <button class="city-tab" onclick="scrollToCity('westport', this)">Westport <span class="tab-count">6</span></button>
+    <button class="city-tab" onclick="scrollToCity('darien', this)">Darien <span class="tab-count">5</span></button>
+    <button class="city-tab" onclick="scrollToCity('norwalk', this)">Norwalk <span class="tab-count">9</span></button>
+    <button class="city-tab" onclick="scrollToCity('newcanaan', this)">New Canaan <span class="tab-count">4</span></button>
+    <button class="city-tab" onclick="scrollToCity('fairfield', this)">Fairfield <span class="tab-count">7</span></button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ STAMFORD ═══════════════════════════════ -->
+<div class="city-section" id="stamford">
+  <div class="city-header">
+    <div class="city-info">
+      <div class="city-name-row">
+        <div class="city-flag">🏙️</div>
+        <h2 class="city-name">Stamford</h2>
+      </div>
+      <p class="city-sub"><strong>12 homes</strong> for sale · Avg list price <strong>$1.24M</strong> · Schools rated <strong>8/10</strong></p>
+    </div>
+    <a class="view-all-btn" href="#">View All 12 Homes →</a>
+  </div>
+  <div class="property-grid">
+    <!-- Featured -->
+    <div class="prop-card featured">
+      <div class="prop-photo">
+        <div class="prop-photo-inner style-colonial">
+          <div class="sky"></div>
+          <div class="ground"></div>
+          <div class="house-body"></div>
+          <div class="house-roof"></div>
+          <div class="house-door"></div>
+          <div class="house-win win1"></div>
+          <div class="house-win win2"></div>
+          <div class="tree tree-l"></div>
+          <div class="tree tree-r"></div>
+        </div>
+        <div class="prop-badge new">New Listing</div>
+        <button class="prop-save">🤍</button>
+        <div class="prop-price-tag">
+          <div class="price">$1,495,000</div>
+          <div class="price-sub">Est. $4,820/mo</div>
+        </div>
+      </div>
+      <div class="prop-info">
+        <div class="prop-address">14 Rockledge Drive</div>
+        <div class="prop-city">Stamford, CT 06903 · North Stamford</div>
+        <div class="prop-specs">
+          <div class="spec"><span class="spec-icon">🛏</span><strong>4</strong> bed</div>
+          <div class="spec"><span class="spec-icon">🚿</span><strong>3.5</strong> bath</div>
+          <div class="spec"><span class="spec-icon">📐</span><strong>3,280</strong> sqft</div>
+          <div class="spec"><span class="spec-icon">🌳</span><strong>0.8</strong> acres</div>
+        </div>
+        <p class="featured-desc">A stunning Colonial on a private cul-de-sac in coveted North Stamford. Chef's kitchen, coffered ceilings, 3-car garage, and a backyard built for entertaining. Walk to Roxbury Elementary.</p>
+        <div class="prop-tags">
+          <span class="prop-tag gold">⭐ Featured</span>
+          <span class="prop-tag">Colonial</span>
+          <span class="prop-tag">Top Schools</span>
+          <span class="prop-tag">Cul-de-Sac</span>
+          <span class="prop-tag">3-Car Garage</span>
+        </div>
+        <div style="margin-top:20px;display:flex;gap:12px;">
+          <button class="tour-btn">Schedule a Tour</button>
+          <button class="tour-btn" style="background:transparent;border:2px solid var(--navy);color:var(--navy);">View Details</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="prop-card">
+      <div class="prop-photo">
+        <div class="prop-photo-inner style-modern">
+          <div class="sky"></div>
+          <div class="ground"></div>
+          <div class="m-body"></div>
+          <div class="m-roof"></div>
+          <div class="m-garage"></div>
+          <div class="m-door"></div>
+          <div class="m-win-strip"></div>
+        </div>
+        <div class="prop-badge">For Sale</div>
+        <button class="prop-save">🤍</button>
+        <div class="prop-price-tag">
+          <div class="price">$875,000</div>
+          <div class="price-sub">Est. $2,820/mo</div>
+        </div>
+      </div>
+      <div class="prop-info">
+        <div class="prop-address">7 Harbor View Terrace</div>
+        <div class="prop-city">Stamford, CT 06902 · Shippan Point</div>
+        <div class="prop-specs">
+          <div class="spec">🛏 <strong>3</strong> bed</div>
+          <div class="spec">🚿 <strong>2</strong> bath</div>
+          <div class="spec">📐 <strong>1,940</strong> sqft</div>
+        </div>
+        <div class="prop-tags">
+          <span class="prop-tag">Contemporary</span>
+          <span class="prop-tag">Water Views</span>
+          <span class="prop-tag">Updated Kitchen</span>
+        </div>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="prop-card">
+      <div class="prop-photo">
+        <div class="prop-photo-inner style-cape">
+          <div class="sky"></div>
+          <div class="ground"></div>
+          <div class="c-body"></div>
+          <div class="c-roof"></div>
+          <div class="c-chimney"></div>
+          <div class="c-door"></div>
+          <div class="c-win cw1"></div>
+          <div class="c-win cw2"></div>
+          <div class="c-win cw3"></div>
+        </div>
+        <div class="prop-badge open">Open Sun 1–3PM</div>
+        <button class="prop-save">🤍</button>
+        <div class="prop-price-tag">
+          <div class="price">$649,000</div>
+          <div class="price-sub">Est. $2,090/mo</div>
+        </div>
+      </div>
+      <div class="prop-info">
+        <div class="prop-address">22 Elm Street</div>
+        <div class="prop-city">Stamford, CT 06905 · Glenbrook</div>
+        <div class="prop-specs">
+          <div class="spec">🛏 <strong>3</strong> bed</div>
+          <div class="spec">🚿 <strong>2</strong> bath</div>
+          <div class="spec">📐 <strong>1,560</strong> sqft</div>
+        </div>
+        <div class="prop-tags">
+          <span class="prop-tag">Cape Cod</span>
+          <span class="prop-tag">Commuter</span>
+          <span class="prop-tag">Fenced Yard</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ GREENWICH ═══════════════════════════════ -->
+<div class="city-section" id="greenwich" style="padding-top:56px;">
+  <div class="city-header">
+    <div class="city-info">
+      <div class="city-name-row">
+        <div class="city-flag">🌿</div>
+        <h2 class="city-name">Greenwich</h2>
+      </div>
+      <p class="city-sub"><strong>8 homes</strong> for sale · Avg list price <strong>$3.85M</strong> · Schools rated <strong>10/10</strong></p>
+    </div>
+    <a class="view-all-btn" href="#">View All 8 Homes →</a>
+  </div>
+  <div class="property-grid">
+    <div class="prop-card">
+      <div class="prop-photo">
+        <div class="prop-photo-inner style-tudor">
+          <div class="sky"></div>
+          <div class="ground"></div>
+          <div class="t-body"></div>
+          <div class="t-beams"></div>
+          <div class="t-roof"></div>
+          <div class="t-door"></div>
+          <div class="t-win tw1"></div>
+          <div class="t-win tw2"></div>
+        </div>
+        <div class="prop-badge" style="background:var(--navy-mid);">Luxury</div>
+        <button class="prop-save">🤍</button>
+        <div class="prop-price-tag">
+          <div class="price">$4,750,000</div>
+          <div class="price-sub">Est. $15,310/mo</div>
+        </div>
+      </div>
+      <div class="prop-info">
+        <div class="prop-address">88 Round Hill Road</div>
+        <div class="prop-city">Greenwich, CT 06831 · Back Country</div>
+        <div class="prop-specs">
+          <div class="spec">🛏 <strong>6</strong> bed</div>
+          <div class="spec">🚿 <strong>5.5</strong> bath</div>
+          <div class="spec">📐 <strong>6,800</strong> sqft</div>
+          <div class="spec">🌳 <strong>3.2</strong> acres</div>
+        </div>
+        <div class="prop-tags">
+          <span class="prop-tag gold">⭐ Featured</span>
+          <span class="prop-tag">Tudor</span>
+          <span class="prop-tag">Pool & Tennis</span>
+          <span class="prop-tag">Guest House</span>
+        </div>
+      </div>
+    </div>
+    <div class="prop-card">
+      <div class="prop-photo">
+        <div class="prop-photo-inner style-colonial">
+          <div class="sky"></div>
+          <div class="ground"></div>
+          <div class="house-body" style="background:#e0d8f0;border-color:#c0b8e0;width:160px;"></div>
+          <div class="house-roof" style="border-bottom-color:#4a3a6a;border-left-width:90px;border-right-width:90px;"></div>
+          <div class="house-door"></div>
+          <div class="house-win win1"></div>
+          <div class="house-win win2"></div>
+          <div class="tree tree-l"></div>
+          <div class="tree tree-r"></div>
+        </div>
+        <div class="prop-badge">For Sale</div>
+        <button class="prop-save">🤍</button>
+        <div class="prop-price-tag">
+          <div class="price">$2,195,000</div>
+          <div class="price-sub">Est. $7,080/mo</div>
+        </div>
+      </div>
+      <div class="prop-info">
+        <div class="prop-address">5 Byram Shore Road</div>
+        <div class="prop-city">Greenwich, CT 06830 · Old Greenwich</div>
+        <div class="prop-specs">
+          <div class="spec">🛏 <strong>5</strong> bed</div>
+          <div class="spec">🚿 <strong>4</strong> bath</div>
+          <div class="spec">📐 <strong>4,100</strong> sqft</div>
+        </div>
+        <div class="prop-tags">
+          <span class="prop-tag">Colonial</span>
+          <span class="prop-tag">Sound Views</span>
+          <span class="prop-tag">Private Dock</span>
+        </div>
+      </div>
+    </div>
+    <div class="prop-card">
+      <div class="prop-photo">
+        <div class="prop-photo-inner style-ranch" style="">
+          <div class="sky"></div>
+          <div class="ground"></div>
+          <div class="r-body" style="background:#f4e8d4;width:180px;"></div>
+          <div class="r-roof"></div>
+          <div class="r-garage"></div>
+          <div class="r-garage-door"></div>
+          <div class="r-door"></div>
+          <div class="r-win rw1"></div>
+          <div class="r-win rw2"></div>
+        </div>
+        <div class="prop-badge open">Open Sat 12–4PM</div>
+        <button class="prop-save">🤍</button>
+        <div class="prop-price-tag">
+          <div class="price">$1,625,000</div>
+          <div class="price-sub">Est. $5,240/mo</div>
+        </div>
+      </div>
+      <div class="prop-info">
+        <div class="prop-address">31 Putnam Avenue</div>
+        <div class="prop-city">Greenwich, CT 06830 · Central Greenwich</div>
+        <div class="prop-specs">
+          <div class="spec">🛏 <strong>4</strong> bed</div>
+          <div class="spec">🚿 <strong>3</strong> bath</div>
+          <div class="spec">📐 <strong>2,840</strong> sqft</div>
+        </div>
+        <div class="prop-tags">
+          <span class="prop-tag">Mid-Century</span>
+          <span class="prop-tag">Walk to Town</span>
+          <span class="prop-tag">Renovated</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ WESTPORT ═══════════════════════════════ -->
+<div class="city-section" id="westport" style="padding-top:56px;">
+  <div class="city-header">
+    <div class="city-info">
+      <div class="city-name-row">
+        <div class="city-flag">🌊</div>
+        <h2 class="city-name">Westport</h2>
+      </div>
+      <p class="city-sub"><strong>6 homes</strong> for sale · Avg list price <strong>$2.10M</strong> · Schools rated <strong>9/10</strong></p>
+    </div>
+    <a class="view-all-btn" href="#">View All 6 Homes →</a>
+  </div>
+  <div class="property-grid">
+    <div class="prop-card featured">
+      <div class="prop-photo">
+        <div class="prop-photo-inner style-victorian">
+          <div class="sky"></div>
+          <div class="ground"></div>
+          <div class="v-body"></div>
+          <div class="v-tower"></div>
+          <div class="v-turret"></div>
+          <div class="v-roof"></div>
+          <div class="v-door"></div>
+          <div class="v-win vw1"></div>
+          <div class="v-win vw2"></div>
+          <div class="v-win vw3"></div>
+        </div>
+        <div class="prop-badge new">New Listing</div>
+        <button class="prop-save">🤍</button>
+        <div class="prop-price-tag">
+          <div class="price">$3,200,000</div>
+          <div class="price-sub">Est. $10,320/mo</div>
+        </div>
+      </div>
+      <div class="prop-info">
+        <div class="prop-address">44 Compo Beach Road</div>
+        <div class="prop-city">Westport, CT 06880 · Compo Beach</div>
+        <div class="prop-specs">
+          <div class="spec">🛏 <strong>5</strong> bed</div>
+          <div class="spec">🚿 <strong>4.5</strong> bath</div>
+          <div class="spec">📐 <strong>4,600</strong> sqft</div>
+          <div class="spec">🌊 <strong>0.4</strong> mi to beach</div>
+        </div>
+        <p class="featured-desc">Victorian masterpiece steps from Compo Beach. Wraparound porch, chef's kitchen with Sub-Zero & Wolf, primary suite with ocean views. Walk to Westport center & train.</p>
+        <div class="prop-tags">
+          <span class="prop-tag gold">⭐ Featured</span>
+          <span class="prop-tag">Victorian</span>
+          <span class="prop-tag">Beach Access</span>
+          <span class="prop-tag">Walk to Train</span>
+          <span class="prop-tag">Entertainer's Yard</span>
+        </div>
+        <div style="margin-top:20px;display:flex;gap:12px;">
+          <button class="tour-btn">Schedule a Tour</button>
+          <button class="tour-btn" style="background:transparent;border:2px solid var(--navy);color:var(--navy);">View Details</button>
+        </div>
+      </div>
+    </div>
+    <div class="prop-card">
+      <div class="prop-photo">
+        <div class="prop-photo-inner style-cape">
+          <div class="sky"></div>
+          <div class="ground"></div>
+          <div class="c-body" style="background:#e8e0f0;border-color:#c8b8e0;"></div>
+          <div class="c-roof" style="border-bottom-color:#6a5a8a;"></div>
+          <div class="c-chimney"></div>
+          <div class="c-door"></div>
+          <div class="c-win cw1"></div>
+          <div class="c-win cw2"></div>
+          <div class="c-win cw3"></div>
+        </div>
+        <div class="prop-badge">For Sale</div>
+        <button class="prop-save">🤍</button>
+        <div class="prop-price-tag">
+          <div class="price">$1,450,000</div>
+          <div class="price-sub">Est. $4,680/mo</div>
+        </div>
+      </div>
+      <div class="prop-info">
+        <div class="prop-address">18 Maple Avenue</div>
+        <div class="prop-city">Westport, CT 06880 · Downtown</div>
+        <div class="prop-specs">
+          <div class="spec">🛏 <strong>4</strong> bed</div>
+          <div class="spec">🚿 <strong>2.5</strong> bath</div>
+          <div class="spec">📐 <strong>2,380</strong> sqft</div>
+        </div>
+        <div class="prop-tags">
+          <span class="prop-tag">Cape Cod</span>
+          <span class="prop-tag">Walk to Shops</span>
+          <span class="prop-tag">Updated</span>
+        </div>
+      </div>
+    </div>
+    <div class="prop-card">
+      <div class="prop-photo">
+        <div class="prop-photo-inner style-modern">
+          <div class="sky" style="background:linear-gradient(180deg,#80a0b8,#a8c0d4);"></div>
+          <div class="ground" style="background:#b0c8a8;"></div>
+          <div class="m-body" style="background:#f8f0e8;"></div>
+          <div class="m-roof"></div>
+          <div class="m-garage"></div>
+          <div class="m-door"></div>
+          <div class="m-win-strip"></div>
+        </div>
+        <div class="prop-badge pending">Under Contract</div>
+        <button class="prop-save">🤍</button>
+        <div class="prop-price-tag">
+          <div class="price">$1,895,000</div>
+          <div class="price-sub">Est. $6,110/mo</div>
+        </div>
+      </div>
+      <div class="prop-info">
+        <div class="prop-address">9 Greens Farms Road</div>
+        <div class="prop-city">Westport, CT 06880 · Greens Farms</div>
+        <div class="prop-specs">
+          <div class="spec">🛏 <strong>4</strong> bed</div>
+          <div class="spec">🚿 <strong>3</strong> bath</div>
+          <div class="spec">📐 <strong>3,100</strong> sqft</div>
+        </div>
+        <div class="prop-tags">
+          <span class="prop-tag">Contemporary</span>
+          <span class="prop-tag">Pool</span>
+          <span class="prop-tag">Cul-de-Sac</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ DARIEN ═══════════════════════════════ -->
+<div class="city-section" id="darien" style="padding-top:56px;">
+  <div class="city-header">
+    <div class="city-info">
+      <div class="city-name-row">
+        <div class="city-flag">🏫</div>
+        <h2 class="city-name">Darien</h2>
+      </div>
+      <p class="city-sub"><strong>5 homes</strong> for sale · Avg list price <strong>$2.45M</strong> · Schools rated <strong>10/10</strong></p>
+    </div>
+    <a class="view-all-btn" href="#">View All 5 Homes →</a>
+  </div>
+  <div class="property-grid">
+    <div class="prop-card">
+      <div class="prop-photo">
+        <div class="prop-photo-inner style-colonial">
+          <div class="sky" style="background:linear-gradient(180deg,#70a0c0,#a0c8e0);"></div>
+          <div class="ground" style="background:#7aaa6a;"></div>
+          <div class="house-body" style="background:#f0ece4;width:150px;height:105px;"></div>
+          <div class="house-roof" style="border-left-width:86px;border-right-width:86px;border-bottom-color:#5a4030;"></div>
+          <div class="house-door"></div>
+          <div class="house-win win1"></div>
+          <div class="house-win win2"></div>
+          <div class="tree tree-l"></div>
+          <div class="tree tree-r"></div>
+        </div>
+        <div class="prop-badge new">New Listing</div>
+        <button class="prop-save">🤍</button>
+        <div class="prop-price-tag">
+          <div class="price">$2,875,000</div>
+          <div class="price-sub">Est. $9,270/mo</div>
+        </div>
+      </div>
+      <div class="prop-info">
+        <div class="prop-address">62 Hollow Tree Ridge</div>
+        <div class="prop-city">Darien, CT 06820 · Mid-Country</div>
+        <div class="prop-specs">
+          <div class="spec">🛏 <strong>5</strong> bed</div>
+          <div class="spec">🚿 <strong>4</strong> bath</div>
+          <div class="spec">📐 <strong>5,200</strong> sqft</div>
+          <div class="spec">🌳 <strong>1.4</strong> acres</div>
+        </div>
+        <div class="prop-tags">
+          <span class="prop-tag gold">⭐ Featured</span>
+          <span class="prop-tag">Colonial</span>
+          <span class="prop-tag">Pool</span>
+          <span class="prop-tag">Top-Rated Schools</span>
+        </div>
+      </div>
+    </div>
+    <div class="prop-card">
+      <div class="prop-photo">
+        <div class="prop-photo-inner style-tudor">
+          <div class="sky" style="background:linear-gradient(180deg,#8898b0,#a8b8c8);"></div>
+          <div class="ground" style="background:#98b880;"></div>
+          <div class="t-body"></div>
+          <div class="t-beams"></div>
+          <div class="t-roof"></div>
+          <div class="t-door"></div>
+          <div class="t-win tw1"></div>
+          <div class="t-win tw2"></div>
+        </div>
+        <div class="prop-badge">For Sale</div>
+        <button class="prop-save">🤍</button>
+        <div class="prop-price-tag">
+          <div class="price">$1,750,000</div>
+          <div class="price-sub">Est. $5,640/mo</div>
+        </div>
+      </div>
+      <div class="prop-info">
+        <div class="prop-address">14 Spring Garden Road</div>
+        <div class="prop-city">Darien, CT 06820 · Noroton</div>
+        <div class="prop-specs">
+          <div class="spec">🛏 <strong>4</strong> bed</div>
+          <div class="spec">🚿 <strong>3.5</strong> bath</div>
+          <div class="spec">📐 <strong>3,650</strong> sqft</div>
+        </div>
+        <div class="prop-tags">
+          <span class="prop-tag">Tudor</span>
+          <span class="prop-tag">Walk to Train</span>
+          <span class="prop-tag">New Kitchen</span>
+        </div>
+      </div>
+    </div>
+    <div class="prop-card">
+      <div class="prop-photo">
+        <div class="prop-photo-inner style-ranch">
+          <div class="sky"></div>
+          <div class="ground"></div>
+          <div class="r-body"></div>
+          <div class="r-roof"></div>
+          <div class="r-garage"></div>
+          <div class="r-garage-door"></div>
+          <div class="r-door"></div>
+          <div class="r-win rw1"></div>
+          <div class="r-win rw2"></div>
+        </div>
+        <div class="prop-badge open">Open Sun 2–4PM</div>
+        <button class="prop-save">🤍</button>
+        <div class="prop-price-tag">
+          <div class="price">$1,125,000</div>
+          <div class="price-sub">Est. $3,630/mo</div>
+        </div>
+      </div>
+      <div class="prop-info">
+        <div class="prop-address">3 Mansfield Avenue</div>
+        <div class="prop-city">Darien, CT 06820 · Tokeneke</div>
+        <div class="prop-specs">
+          <div class="spec">🛏 <strong>3</strong> bed</div>
+          <div class="spec">🚿 <strong>2</strong> bath</div>
+          <div class="spec">📐 <strong>1,880</strong> sqft</div>
+        </div>
+        <div class="prop-tags">
+          <span class="prop-tag">Ranch</span>
+          <span class="prop-tag">Beach Rights</span>
+          <span class="prop-tag">Single Level</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ NORWALK ═══════════════════════════════ -->
+<div class="city-section" id="norwalk" style="padding-top:56px;">
+  <div class="city-header">
+    <div class="city-info">
+      <div class="city-name-row">
+        <div class="city-flag">⚓</div>
+        <h2 class="city-name">Norwalk</h2>
+      </div>
+      <p class="city-sub"><strong>9 homes</strong> for sale · Avg list price <strong>$785K</strong> · Schools rated <strong>7/10</strong></p>
+    </div>
+    <a class="view-all-btn" href="#">View All 9 Homes →</a>
+  </div>
+  <div class="property-grid">
+    <div class="prop-card">
+      <div class="prop-photo">
+        <div class="prop-photo-inner style-cape">
+          <div class="sky" style="background:linear-gradient(180deg,#5888a8,#88b0c8);"></div>
+          <div class="ground" style="background:#80a868;"></div>
+          <div class="c-body" style="background:#eee4d4;"></div>
+          <div class="c-roof" style="border-bottom-color:#4a6848;"></div>
+          <div class="c-chimney"></div>
+          <div class="c-door"></div>
+          <div class="c-win cw1"></div>
+          <div class="c-win cw2"></div>
+          <div class="c-win cw3"></div>
+        </div>
+        <div class="prop-badge new">New Listing</div>
+        <button class="prop-save">🤍</button>
+        <div class="prop-price-tag">
+          <div class="price">$689,000</div>
+          <div class="price-sub">Est. $2,220/mo</div>
+        </div>
+      </div>
+      <div class="prop-info">
+        <div class="prop-address">119 West Avenue</div>
+        <div class="prop-city">Norwalk, CT 06850 · SoNo District</div>
+        <div class="prop-specs">
+          <div class="spec">🛏 <strong>3</strong> bed</div>
+          <div class="spec">🚿 <strong>2</strong> bath</div>
+          <div class="spec">📐 <strong>1,680</strong> sqft</div>
+        </div>
+        <div class="prop-tags">
+          <span class="prop-tag">Cape Cod</span>
+          <span class="prop-tag">Walk to SoNo</span>
+          <span class="prop-tag">Updated Bath</span>
+        </div>
+      </div>
+    </div>
+    <div class="prop-card">
+      <div class="prop-photo">
+        <div class="prop-photo-inner style-modern">
+          <div class="sky" style="background:linear-gradient(180deg,#6890a8,#98b8c8);"></div>
+          <div class="ground" style="background:#8aaa78;"></div>
+          <div class="m-body"></div>
+          <div class="m-roof"></div>
+          <div class="m-garage"></div>
+          <div class="m-door"></div>
+          <div class="m-win-strip"></div>
+        </div>
+        <div class="prop-badge">For Sale</div>
+        <button class="prop-save">🤍</button>
+        <div class="prop-price-tag">
+          <div class="price">$925,000</div>
+          <div class="price-sub">Est. $2,980/mo</div>
+        </div>
+      </div>
+      <div class="prop-info">
+        <div class="prop-address">37 Rowayton Avenue</div>
+        <div class="prop-city">Norwalk, CT 06853 · Rowayton</div>
+        <div class="prop-specs">
+          <div class="spec">🛏 <strong>4</strong> bed</div>
+          <div class="spec">🚿 <strong>2.5</strong> bath</div>
+          <div class="spec">📐 <strong>2,200</strong> sqft</div>
+        </div>
+        <div class="prop-tags">
+          <span class="prop-tag gold">⭐ Featured</span>
+          <span class="prop-tag">Contemporary</span>
+          <span class="prop-tag">Water Access</span>
+        </div>
+      </div>
+    </div>
+    <div class="prop-card">
+      <div class="prop-photo">
+        <div class="prop-photo-inner style-colonial">
+          <div class="sky" style="background:linear-gradient(180deg,#6a9ab0,#9ac0d0);"></div>
+          <div class="ground" style="background:#7a9a68;"></div>
+          <div class="house-body" style="background:#ece4d8;"></div>
+          <div class="house-roof" style="border-bottom-color:#8a4a38;"></div>
+          <div class="house-door"></div>
+          <div class="house-win win1"></div>
+          <div class="house-win win2"></div>
+          <div class="tree tree-l"></div>
+        </div>
+        <div class="prop-badge open">Open Sat 11–1PM</div>
+        <button class="prop-save">🤍</button>
+        <div class="prop-price-tag">
+          <div class="price">$545,000</div>
+          <div class="price-sub">Est. $1,760/mo</div>
+        </div>
+      </div>
+      <div class="prop-info">
+        <div class="prop-address">8 Flax Hill Road</div>
+        <div class="prop-city">Norwalk, CT 06854 · East Norwalk</div>
+        <div class="prop-specs">
+          <div class="spec">🛏 <strong>3</strong> bed</div>
+          <div class="spec">🚿 <strong>1.5</strong> bath</div>
+          <div class="spec">📐 <strong>1,440</strong> sqft</div>
+        </div>
+        <div class="prop-tags">
+          <span class="prop-tag">Colonial</span>
+          <span class="prop-tag">First-Time Buyer</span>
+          <span class="prop-tag">Updated</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ NEW CANAAN ═══════════════════════════════ -->
+<div class="city-section" id="newcanaan" style="padding-top:56px;">
+  <div class="city-header">
+    <div class="city-info">
+      <div class="city-name-row">
+        <div class="city-flag">🌳</div>
+        <h2 class="city-name">New Canaan</h2>
+      </div>
+      <p class="city-sub"><strong>4 homes</strong> for sale · Avg list price <strong>$2.90M</strong> · Schools rated <strong>10/10</strong></p>
+    </div>
+    <a class="view-all-btn" href="#">View All 4 Homes →</a>
+  </div>
+  <div class="property-grid">
+    <div class="prop-card featured">
+      <div class="prop-photo">
+        <div class="prop-photo-inner style-tudor">
+          <div class="sky" style="background:linear-gradient(180deg,#6078a0,#8898b8);"></div>
+          <div class="ground" style="background:#6a9858;"></div>
+          <div class="t-body" style="background:#f0e8dc;width:160px;height:100px;"></div>
+          <div class="t-beams"></div>
+          <div class="t-roof" style="border-left-width:94px;border-right-width:94px;border-bottom-color:#6a3a28;"></div>
+          <div class="t-door"></div>
+          <div class="t-win tw1"></div>
+          <div class="t-win tw2"></div>
+        </div>
+        <div class="prop-badge" style="background:var(--navy-dark);">Estate</div>
+        <button class="prop-save">🤍</button>
+        <div class="prop-price-tag">
+          <div class="price">$5,500,000</div>
+          <div class="price-sub">Est. $17,740/mo</div>
+        </div>
+      </div>
+      <div class="prop-info">
+        <div class="prop-address">1 Upper Cross Road</div>
+        <div class="prop-city">New Canaan, CT 06840 · Country Club</div>
+        <div class="prop-specs">
+          <div class="spec">🛏 <strong>7</strong> bed</div>
+          <div class="spec">🚿 <strong>6.5</strong> bath</div>
+          <div class="spec">📐 <strong>8,200</strong> sqft</div>
+          <div class="spec">🌳 <strong>5.1</strong> acres</div>
+        </div>
+        <p class="featured-desc">Extraordinary English Tudor estate on 5+ private acres. Grand foyer, 3-car heated garage, wine cellar, home theater, pool house, and a detached guest cottage. A rare New Canaan masterpiece.</p>
+        <div class="prop-tags">
+          <span class="prop-tag gold">⭐ Featured</span>
+          <span class="prop-tag">English Tudor</span>
+          <span class="prop-tag">Pool + Tennis</span>
+          <span class="prop-tag">Guest Cottage</span>
+          <span class="prop-tag">Home Theater</span>
+        </div>
+        <div style="margin-top:20px;display:flex;gap:12px;">
+          <button class="tour-btn">Schedule a Tour</button>
+          <button class="tour-btn" style="background:transparent;border:2px solid var(--navy);color:var(--navy);">View Details</button>
+        </div>
+      </div>
+    </div>
+    <div class="prop-card">
+      <div class="prop-photo">
+        <div class="prop-photo-inner style-victorian">
+          <div class="sky" style="background:linear-gradient(180deg,#7090a8,#98b0c0);"></div>
+          <div class="ground" style="background:#7a9862;"></div>
+          <div class="v-body"></div>
+          <div class="v-tower"></div>
+          <div class="v-turret"></div>
+          <div class="v-roof"></div>
+          <div class="v-door"></div>
+          <div class="v-win vw1"></div>
+          <div class="v-win vw2"></div>
+          <div class="v-win vw3"></div>
+        </div>
+        <div class="prop-badge">For Sale</div>
+        <button class="prop-save">🤍</button>
+        <div class="prop-price-tag">
+          <div class="price">$2,100,000</div>
+          <div class="price-sub">Est. $6,770/mo</div>
+        </div>
+      </div>
+      <div class="prop-info">
+        <div class="prop-address">45 Lakeview Avenue</div>
+        <div class="prop-city">New Canaan, CT 06840 · Downtown</div>
+        <div class="prop-specs">
+          <div class="spec">🛏 <strong>5</strong> bed</div>
+          <div class="spec">🚿 <strong>4</strong> bath</div>
+          <div class="spec">📐 <strong>3,900</strong> sqft</div>
+        </div>
+        <div class="prop-tags">
+          <span class="prop-tag">Victorian</span>
+          <span class="prop-tag">Walk to Town</span>
+          <span class="prop-tag">Renovated</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ FAIRFIELD ═══════════════════════════════ -->
+<div class="city-section" id="fairfield" style="padding-top:56px;padding-bottom:80px;">
+  <div class="city-header">
+    <div class="city-info">
+      <div class="city-name-row">
+        <div class="city-flag">🏖️</div>
+        <h2 class="city-name">Fairfield</h2>
+      </div>
+      <p class="city-sub"><strong>7 homes</strong> for sale · Avg list price <strong>$1.18M</strong> · Schools rated <strong>9/10</strong></p>
+    </div>
+    <a class="view-all-btn" href="#">View All 7 Homes →</a>
+  </div>
+  <div class="property-grid">
+    <div class="prop-card">
+      <div class="prop-photo">
+        <div class="prop-photo-inner style-cape">
+          <div class="sky" style="background:linear-gradient(180deg,#50788a,#7898aa);"></div>
+          <div class="ground" style="background:#6a9860;"></div>
+          <div class="c-body" style="background:#f4ece0;width:140px;"></div>
+          <div class="c-roof" style="border-bottom-color:#507858;border-left-width:96px;border-right-width:96px;"></div>
+          <div class="c-chimney" style="background:#9a6848;"></div>
+          <div class="c-door" style="background:#5a3820;"></div>
+          <div class="c-win cw1"></div>
+          <div class="c-win cw2"></div>
+          <div class="c-win cw3"></div>
+        </div>
+        <div class="prop-badge new">New Listing</div>
+        <button class="prop-save">🤍</button>
+        <div class="prop-price-tag">
+          <div class="price">$1,099,000</div>
+          <div class="price-sub">Est. $3,545/mo</div>
+        </div>
+      </div>
+      <div class="prop-info">
+        <div class="prop-address">52 Beach Road</div>
+        <div class="prop-city">Fairfield, CT 06824 · Southport</div>
+        <div class="prop-specs">
+          <div class="spec">🛏 <strong>4</strong> bed</div>
+          <div class="spec">🚿 <strong>3</strong> bath</div>
+          <div class="spec">📐 <strong>2,440</strong> sqft</div>
+        </div>
+        <div class="prop-tags">
+          <span class="prop-tag gold">⭐ Featured</span>
+          <span class="prop-tag">Cape Cod</span>
+          <span class="prop-tag">Beach Rights</span>
+          <span class="prop-tag">Corner Lot</span>
+        </div>
+      </div>
+    </div>
+    <div class="prop-card">
+      <div class="prop-photo">
+        <div class="prop-photo-inner style-colonial">
+          <div class="sky" style="background:linear-gradient(180deg,#6888a0,#90a8b8);"></div>
+          <div class="ground" style="background:#78a060;"></div>
+          <div class="house-body" style="background:#ede8dc;"></div>
+          <div class="house-roof" style="border-bottom-color:#6a3a28;"></div>
+          <div class="house-door"></div>
+          <div class="house-win win1"></div>
+          <div class="house-win win2"></div>
+          <div class="tree tree-l"></div>
+          <div class="tree tree-r"></div>
+        </div>
+        <div class="prop-badge open">Open Sat 1–3PM</div>
+        <button class="prop-save">🤍</button>
+        <div class="prop-price-tag">
+          <div class="price">$879,000</div>
+          <div class="price-sub">Est. $2,835/mo</div>
+        </div>
+      </div>
+      <div class="prop-info">
+        <div class="prop-address">210 Reef Road</div>
+        <div class="prop-city">Fairfield, CT 06824 · Greenfield Hill</div>
+        <div class="prop-specs">
+          <div class="spec">🛏 <strong>4</strong> bed</div>
+          <div class="spec">🚿 <strong>2.5</strong> bath</div>
+          <div class="spec">📐 <strong>2,180</strong> sqft</div>
+        </div>
+        <div class="prop-tags">
+          <span class="prop-tag">Colonial</span>
+          <span class="prop-tag">Huge Yard</span>
+          <span class="prop-tag">Top Schools</span>
+        </div>
+      </div>
+    </div>
+    <div class="prop-card">
+      <div class="prop-photo">
+        <div class="prop-photo-inner style-ranch">
+          <div class="sky" style="background:linear-gradient(180deg,#7898b0,#a0b8c8);"></div>
+          <div class="ground" style="background:#7a9858;"></div>
+          <div class="r-body" style="background:#f0e8d8;"></div>
+          <div class="r-roof"></div>
+          <div class="r-garage"></div>
+          <div class="r-garage-door"></div>
+          <div class="r-door"></div>
+          <div class="r-win rw1"></div>
+          <div class="r-win rw2"></div>
+        </div>
+        <div class="prop-badge">For Sale</div>
+        <button class="prop-save">🤍</button>
+        <div class="prop-price-tag">
+          <div class="price">$699,000</div>
+          <div class="price-sub">Est. $2,255/mo</div>
+        </div>
+      </div>
+      <div class="prop-info">
+        <div class="prop-address">18 Barberry Lane</div>
+        <div class="prop-city">Fairfield, CT 06825 · Lake Hills</div>
+        <div class="prop-specs">
+          <div class="spec">🛏 <strong>3</strong> bed</div>
+          <div class="spec">🚿 <strong>2</strong> bath</div>
+          <div class="spec">📐 <strong>1,720</strong> sqft</div>
+        </div>
+        <div class="prop-tags">
+          <span class="prop-tag">Ranch</span>
+          <span class="prop-tag">Private Yard</span>
+          <span class="prop-tag">Commuter</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAP BANNER -->
+<div class="map-banner">
+  <div class="map-visual">
+    <svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <!-- Fairfield County abstract map shapes -->
+      <rect width="600" height="320" fill="#112850"/>
+      <!-- Water at bottom -->
+      <ellipse cx="300" cy="370" rx="420" ry="110" fill="#0a1c3a" opacity="0.8"/>
+      <!-- County region shapes -->
+      <polygon points="40,280 80,240 140,220 200,240 220,200 260,180 300,190 340,180 380,200 420,190 460,210 500,240 540,260 560,280 540,300 40,300" fill="#1b3d7a" opacity="0.8"/>
+      <polygon points="80,240 140,180 200,160 260,140 320,150 380,140 440,160 500,190 520,220 460,210 420,190 380,200 340,180 300,190 260,180 220,200 200,240 140,220" fill="#234a92" opacity="0.6"/>
+      <!-- City dots — white for brand -->
+      <circle cx="200" cy="230" r="8" fill="#ffffff" opacity="0.95"/>
+      <text x="200" y="218" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="10" font-family="Inter,sans-serif" font-weight="600">Stamford</text>
+      <circle cx="120" cy="210" r="6" fill="#d0d4de" opacity="0.85"/>
+      <text x="120" y="198" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="9" font-family="Inter,sans-serif">Greenwich</text>
+      <circle cx="300" cy="180" r="7" fill="#ffffff" opacity="0.9"/>
+      <text x="300" y="168" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10" font-family="Inter,sans-serif" font-weight="600">Westport</text>
+      <circle cx="240" cy="195" r="5" fill="#d0d4de" opacity="0.8"/>
+      <text x="240" y="183" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9" font-family="Inter,sans-serif">Darien</text>
+      <circle cx="380" cy="185" r="6" fill="#d0d4de" opacity="0.85"/>
+      <text x="380" y="173" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="9" font-family="Inter,sans-serif">Norwalk</text>
+      <circle cx="330" cy="160" r="5" fill="#d0d4de" opacity="0.75"/>
+      <text x="330" y="148" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="9" font-family="Inter,sans-serif">New Canaan</text>
+      <circle cx="450" cy="195" r="6" fill="#d0d4de" opacity="0.85"/>
+      <text x="450" y="183" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="9" font-family="Inter,sans-serif">Fairfield</text>
+      <!-- Roads -->
+      <path d="M 40 230 Q 200 220 400 210 Q 500 205 560 200" stroke="rgba(255,255,255,0.12)" stroke-width="2" fill="none"/>
+      <path d="M 100 160 Q 200 190 300 180 Q 400 170 500 185" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" fill="none"/>
+      <!-- Sound label -->
+      <text x="300" y="305" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-size="13" font-family="Playfair Display,serif" font-style="italic">Long Island Sound</text>
+    </svg>
+  </div>
+  <div class="map-content">
+    <h3>Explore by Neighborhood</h3>
+    <p>From Gold Coast estates to charming shoreline cottages — we know Fairfield County like our own backyard.</p>
+    <div class="map-cities">
+      <span class="map-city-pill active">Stamford</span>
+      <span class="map-city-pill">Greenwich</span>
+      <span class="map-city-pill">Westport</span>
+      <span class="map-city-pill">Darien</span>
+      <span class="map-city-pill">Norwalk</span>
+      <span class="map-city-pill">New Canaan</span>
+      <span class="map-city-pill">Fairfield</span>
+    </div>
+    <button class="map-cta">View Interactive Map</button>
+  </div>
+</div>
+
+<!-- WHY MARR CARUSO -->
+<section class="why-section">
+  <div class="section-header">
+    <div class="section-eyebrow">Why Marr Caruso</div>
+    <h2>The Fairfield County Experts</h2>
+    <p>Independent, local, and deeply invested in every community we serve since 1996.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🏡</div>
+      <h3>Hyper-Local Knowledge</h3>
+      <p>We've lived and worked in Fairfield County for over 27 years. We know which streets flood, which school boundaries matter, and which neighborhoods are on the rise before anyone else does.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🤝</div>
+      <h3>White-Glove Service</h3>
+      <p>As an independent boutique brokerage, every client works directly with a senior agent — never handed off to a junior. Your calls get answered, your offers get submitted, and your deals get closed.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📊</div>
+      <h3>Data-Driven Results</h3>
+      <p>Our 98% list-to-sale ratio and $2.4B+ in closed volume speak for themselves. We price homes right and negotiate hard — whether you're buying or selling in any market condition.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AGENTS -->
+<section class="agents-section">
+  <div class="section-header">
+    <div class="section-eyebrow">Meet the Team</div>
+    <h2>Your Fairfield County Agents</h2>
+    <p>Local experts who've closed hundreds of deals across every city and price point.</p>
+  </div>
+  <div class="agents-grid">
+    <div class="agent-card">
+      <div class="agent-avatar">GM</div>
+      <div class="agent-name">Glenn Marr</div>
+      <div class="agent-title">Broker · Owner</div>
+      <div class="agent-stats">
+        <div class="agent-stat"><div class="num">$84M</div><div class="lbl">Volume</div></div>
+        <div class="agent-stat"><div class="num">27yr</div><div class="lbl">Experience</div></div>
+      </div>
+      <button class="agent-contact">Contact Glenn</button>
+    </div>
+    <div class="agent-card">
+      <div class="agent-avatar">SC</div>
+      <div class="agent-name">Sara Caruso</div>
+      <div class="agent-title">Partner · Buyer Specialist</div>
+      <div class="agent-stats">
+        <div class="agent-stat"><div class="num">$61M</div><div class="lbl">Volume</div></div>
+        <div class="agent-stat"><div class="num">18yr</div><div class="lbl">Experience</div></div>
+      </div>
+      <button class="agent-contact">Contact Sara</button>
+    </div>
+    <div class="agent-card">
+      <div class="agent-avatar">JR</div>
+      <div class="agent-name">Jamie Rivera</div>
+      <div class="agent-title">Senior Agent · Luxury</div>
+      <div class="agent-stats">
+        <div class="agent-stat"><div class="num">$38M</div><div class="lbl">Volume</div></div>
+        <div class="agent-stat"><div class="num">9yr</div><div class="lbl">Experience</div></div>
+      </div>
+      <button class="agent-contact">Contact Jamie</button>
+    </div>
+    <div class="agent-card">
+      <div class="agent-avatar">MT</div>
+      <div class="agent-name">Maya Torres</div>
+      <div class="agent-title">Agent · First-Time Buyers</div>
+      <div class="agent-stats">
+        <div class="agent-stat"><div class="num">$22M</div><div class="lbl">Volume</div></div>
+        <div class="agent-stat"><div class="num">5yr</div><div class="lbl">Experience</div></div>
+      </div>
+      <button class="agent-contact">Contact Maya</button>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="background:var(--platinum-light);">
+  <div class="section-header">
+    <div class="section-eyebrow">Client Stories</div>
+    <h2>What Our Clients Say</h2>
+    <p>Real experiences from homeowners and buyers across Fairfield County.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"Glenn found us our dream home in North Stamford before it even hit the market. He knew the neighborhood, the sellers, and the school district better than anyone. We were in contract in 48 hours."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">DH</div>
+        <div>
+          <div class="testi-name">David & Helen K.</div>
+          <div class="testi-loc">Bought in Stamford · $1.35M</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"We listed with Sara in Westport and had 4 offers over ask in the first weekend. She knew exactly how to price it and market it. We closed $85K above our original hope."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">LP</div>
+        <div>
+          <div class="testi-name">Lisa & Peter V.</div>
+          <div class="testi-loc">Sold in Westport · $2.1M</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"As first-time buyers, we were nervous about Greenwich prices. Maya walked us through every step, negotiated hard on our behalf, and we closed $50K under ask on a home we love."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">AM</div>
+        <div>
+          <div class="testi-name">Alex & Morgan T.</div>
+          <div class="testi-loc">Bought in Greenwich · $1.68M</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo" style="margin-bottom:16px;">
+        <div class="logo-mark">MC</div>
+        <div class="logo-text">
+          <span class="logo-name">Marr Caruso Realty Group</span>
+          <span class="logo-sub">Est. 1996 · Stamford, CT</span>
+        </div>
+      </div>
+      <p>Fairfield County's trusted independent brokerage for over 27 years. Serving Stamford, Greenwich, Westport, Darien, Norwalk, New Canaan, and Fairfield.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Buy</h4>
+      <a href="#">Search Homes</a>
+      <a href="#">Homes by City</a>
+      <a href="#">Open Houses</a>
+      <a href="#">New Listings</a>
+      <a href="#">Luxury Homes</a>
+    </div>
+    <div class="footer-col">
+      <h4>Sell</h4>
+      <a href="#">Home Valuation</a>
+      <a href="#">Market Reports</a>
+      <a href="#">Seller's Guide</a>
+      <a href="#">Recent Sales</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About Us</a>
+      <a href="#">Meet the Team</a>
+      <a href="#">Client Reviews</a>
+      <a href="#">Contact</a>
+      <a href="#">203-555-0188</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 Marr Caruso Realty Group · Stamford, CT · All listings subject to prior sale and market change.</p>
+    <div class="footer-badges">
+      <span class="footer-badge">MLS</span>
+      <span class="footer-badge">REALTOR®</span>
+      <span class="footer-badge">NAR</span>
+      <span class="footer-badge">Equal Housing</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function scrollToCity(id, el) {
+    document.querySelectorAll('.city-tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    const target = document.getElementById(id);
+    if (target) {
+      const offset = 72 + 56; // nav + tabs
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  }
+
+  // Update active tab on scroll
+  const sections = ['stamford','greenwich','westport','darien','norwalk','newcanaan','fairfield'];
+  const tabs = document.querySelectorAll('.city-tab');
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY + 200;
+    let current = sections[0];
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && el.offsetTop <= scrollY) current = id;
+    });
+    tabs.forEach((tab, i) => {
+      tab.classList.toggle('active', sections[i] === current);
+    });
+  }, { passive: true });
+
+  // Heart toggle
+  document.querySelectorAll('.prop-save').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      btn.textContent = btn.textContent === '🤍' ? '❤️' : '🤍';
+    });
+  });
+</script>
+</body>
+</html>
