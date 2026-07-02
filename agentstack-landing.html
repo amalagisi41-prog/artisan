@@ -10,8 +10,9 @@
 
   /* NAV */
   .nav { display:flex; align-items:center; justify-content:space-between; padding:24px 64px; }
-  .logo { font-size:22px; font-weight:800; letter-spacing:-0.02em; color:#1a3a2a; }
+  .logo { font-size:22px; font-weight:800; letter-spacing:-0.02em; color:#1a3a2a; line-height:1; }
   .logo span { color:#a07830; }
+  .logo-tag { font-size:10px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:rgba(26,58,42,0.55); margin-top:4px; }
   .nav-links { display:flex; gap:36px; font-size:14px; color:rgba(26,58,42,0.6); }
   .nav-cta { background:#a07830; color:#f5f0e8; padding:10px 22px; border-radius:8px; font-size:14px; font-weight:600; }
 
@@ -177,7 +178,10 @@
 
 <!-- NAV -->
 <div class="nav">
-  <div class="logo">Lead<span>Stack</span></div>
+  <div>
+    <div class="logo">Agent<span>Stack</span></div>
+    <div class="logo-tag">Real Estate Solutions</div>
+  </div>
   <div class="nav-links">
     <span>For Agents</span><span>For Brokers</span><span>Pricing</span>
   </div>
