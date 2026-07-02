@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgentStack — Teaser</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  :root {
+    --cream:#f5f0e8; --navy:#1b3d7a; --deep:#122a55; --blue:#3b7ff2; --sky:#6ba3ff;
+  }
+  html,body { height:100%; }
+  body { font-family:'Inter',sans-serif; background:var(--deep); overflow:hidden; }
+
+  .stage { position:fixed; inset:0; }
+  .slide { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:48px 8vw 96px; opacity:0; pointer-events:none; transition:opacity 0.5s ease; }
+  .slide.active { opacity:1; pointer-events:auto; }
+
+  /* staggered entrance */
+  .slide > * { opacity:0; transform:translateY(26px); }
+  .slide.active > * { animation:up 0.7s cubic-bezier(0.22,1,0.36,1) forwards; }
+  .slide.active > *:nth-child(1){animation-delay:0.05s} .slide.active > *:nth-child(2){animation-delay:0.2s}
+  .slide.active > *:nth-child(3){animation-delay:0.38s} .slide.active > *:nth-child(4){animation-delay:0.56s}
+  .slide.active > *:nth-child(5){animation-delay:0.74s} .slide.active > *:nth-child(6){animation-delay:0.9s}
+  @keyframes up { to { opacity:1; transform:translateY(0); } }
+  @media (prefers-reduced-motion: reduce) { .slide > *, .slide.active > * { animation:none !important; opacity:1; transform:none; } }
+
+  /* slide grounds */
+  .g-deep { background:radial-gradient(1200px 700px at 50% 30%, #1b3d7a 0%, #122a55 65%); color:var(--cream); }
+  .g-cream { background:var(--cream); color:var(--navy); }
+  .g-blue { background:linear-gradient(150deg, #2d63c8 0%, #3b7ff2 60%, #6ba3ff 100%); color:#fff; }
+
+  .kicker { font-size:clamp(11px,1.4vw,14px); font-weight:800; letter-spacing:0.3em; text-indent:0.3em; text-transform:uppercase; opacity:0.65; margin-bottom:26px; }
+  h1 { font-size:clamp(34px,6.4vw,84px); font-weight:900; letter-spacing:-0.03em; line-height:1.02; max-width:14ch; text-wrap:balance; }
+  h1 .b { color:var(--sky); }
+  .g-cream h1 .b { color:var(--blue); }
+  .sub { font-size:clamp(15px,2vw,23px); font-weight:600; opacity:0.75; margin-top:26px; max-width:44ch; line-height:1.5; }
+
+  .bignum { font-size:clamp(70px,14vw,190px); font-weight:900; letter-spacing:-0.04em; line-height:0.95; color:var(--sky); font-variant-numeric:tabular-nums; }
+  .g-cream .bignum { color:var(--blue); }
+
+  /* lockup */
+  .lockup { line-height:1; }
+  .wordmark { font-size:clamp(48px,8.5vw,110px); font-weight:900; letter-spacing:-0.03em; color:var(--cream); }
+  .wordmark span { color:var(--sky); }
+  .lock-tag { font-size:clamp(11px,1.6vw,18px); font-weight:700; letter-spacing:0.36em; text-indent:0.36em; text-transform:uppercase; color:rgba(245,240,232,0.6); margin-top:16px; }
+
+  /* feature chips */
+  .chips { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; max-width:920px; margin-top:38px; }
+  .chip { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.16); border-radius:14px; padding:16px 22px; font-size:clamp(13px,1.6vw,17px); font-weight:700; color:var(--cream); }
+  .chip em { font-style:normal; color:var(--sky); }
+
+  /* value cards */
+  .vals { display:flex; gap:22px; justify-content:center; flex-wrap:wrap; margin-top:40px; }
+  .val { background:#fff; border-radius:18px; padding:28px 34px; min-width:200px; box-shadow:0 14px 44px rgba(18,42,85,0.18); }
+  .val .n { font-size:clamp(30px,4.6vw,54px); font-weight:900; letter-spacing:-0.03em; color:var(--navy); font-variant-numeric:tabular-nums; }
+  .val .n em { font-style:normal; color:var(--blue); }
+  .val .l { font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(27,61,122,0.5); margin-top:8px; }
+
+  /* chat teaser */
+  .phone { background:#fff; border-radius:22px; padding:22px; width:min(430px,88vw); box-shadow:0 24px 70px rgba(0,0,0,0.35); text-align:left; margin-top:36px; }
+  .ph-head { display:flex; align-items:center; gap:12px; border-bottom:1px solid #e8e4dc; padding-bottom:14px; margin-bottom:14px; }
+  .ph-dot { width:38px; height:38px; border-radius:50%; background:var(--blue); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:900; font-size:15px; }
+  .ph-name { font-weight:800; color:var(--navy); font-size:14px; }
+  .ph-ai { font-size:11px; color:var(--blue); font-weight:700; }
+  .bub { max-width:82%; padding:11px 15px; border-radius:14px; font-size:13.5px; line-height:1.45; margin-bottom:9px; }
+  .bub.lead { background:#eef1f6; color:#222; border-bottom-left-radius:4px; }
+  .bub.ai { background:var(--blue); color:#fff; margin-left:auto; border-bottom-right-radius:4px; }
+  .stamp { font-size:10.5px; color:#9aa2b1; margin:2px 6px 10px; }
+  .stamp.r { text-align:right; }
+
+  .cta-btn { display:inline-block; background:var(--blue); color:#fff; font-weight:800; font-size:clamp(15px,2vw,20px); padding:18px 44px; border-radius:14px; margin-top:38px; box-shadow:0 14px 40px rgba(59,127,242,0.45); }
+  .url { font-size:clamp(13px,1.8vw,18px); font-weight:700; letter-spacing:0.08em; color:rgba(245,240,232,0.55); margin-top:22px; }
+
+  /* pulse on AI badge */
+  .pulse { display:inline-flex; align-items:center; gap:9px; background:rgba(107,163,255,0.14); border:1px solid rgba(107,163,255,0.4); color:var(--sky); font-size:clamp(12px,1.5vw,15px); font-weight:800; letter-spacing:0.14em; text-transform:uppercase; padding:9px 20px; border-radius:24px; margin-bottom:30px; }
+  .pulse::before { content:''; width:9px; height:9px; border-radius:50%; background:var(--sky); animation:pp 1.6s infinite; }
+  @keyframes pp { 0%,100%{opacity:1; transform:scale(1)} 50%{opacity:0.4; transform:scale(0.7)} }
+
+  /* chrome */
+  .bar { position:fixed; top:0; left:0; height:5px; background:var(--blue); width:0%; z-index:60; transition:width 0.1s linear; }
+  .hud { position:fixed; bottom:0; left:0; right:0; display:flex; align-items:center; justify-content:center; gap:18px; padding:18px; z-index:60; background:linear-gradient(transparent, rgba(10,20,42,0.55)); }
+  .hud button { background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.22); color:#fff; font-family:'Inter',sans-serif; font-weight:700; font-size:13px; padding:9px 18px; border-radius:9px; cursor:pointer; }
+  .hud button:hover { background:rgba(255,255,255,0.22); }
+  .dots { display:flex; gap:7px; }
+  .dot { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.3); cursor:pointer; }
+  .dot.on { background:var(--sky); }
+  .clock { font-size:12px; font-weight:700; color:rgba(255,255,255,0.6); font-variant-numeric:tabular-nums; min-width:44px; }
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+
+<div class="stage" id="stage">
+
+  <!-- 1 · HOOK -->
+  <section class="slide g-deep" data-t="9">
+    <div class="kicker">While you were in a showing…</div>
+    <h1>You just missed a <span class="b">$12,000</span> commission.</h1>
+    <p class="sub">A Zillow lead texted. Waited 11 minutes. Then called the next agent on the list.</p>
+  </section>
+
+  <!-- 2 · THE STAT -->
+  <section class="slide g-cream" data-t="8">
+    <div class="bignum">78%</div>
+    <h1 style="font-size:clamp(24px,3.6vw,44px);">of buyers hire the <span class="b">first agent</span> who responds.</h1>
+    <p class="sub">Speed isn't a nice-to-have. It's the whole game.</p>
+  </section>
+
+  <!-- 3 · REVEAL -->
+  <section class="slide g-deep" data-t="10">
+    <div class="pulse">Introducing</div>
+    <div class="lockup">
+      <div class="wordmark">Agent<span>Stack</span></div>
+      <div class="lock-tag">Real Estate Solutions</div>
+    </div>
+    <p class="sub">The AI-powered CRM that answers, qualifies, and books — so you never lose another deal between showings.</p>
+  </section>
+
+  <!-- 4 · AI RECEPTIONIST -->
+  <section class="slide g-blue" data-t="14">
+    <div class="kicker" style="opacity:0.85;">Your 24/7 AI receptionist</div>
+    <h1 style="font-size:clamp(26px,4.4vw,54px);">Every lead answered in <span style="color:var(--deep);">under 60 seconds.</span></h1>
+    <div class="phone">
+      <div class="ph-head">
+        <div class="ph-dot">AI</div>
+        <div>
+          <div class="ph-name">Rivera Realty Group</div>
+          <div class="ph-ai">● AgentStack AI · replies instantly</div>
+        </div>
+      </div>
+      <div class="bub lead">Hi — is 42 Birchwood Ln still available? We're pre-approved at $900k.</div>
+      <div class="stamp">Sat 9:42 PM</div>
+      <div class="bub ai">It is! Great news on the pre-approval. Sarah has Sunday 1:30 or 3:00 open for a private showing — which works better?</div>
+      <div class="stamp r">Sat 9:42 PM · 38 seconds later</div>
+      <div class="bub lead">1:30 works!</div>
+      <div class="bub ai">Booked ✓ You'll get a confirmation text shortly. See you Sunday!</div>
+    </div>
+  </section>
+
+  <!-- 5 · PIPELINE -->
+  <section class="slide g-cream" data-t="10">
+    <div class="kicker">Nothing falls through the cracks</div>
+    <h1>Every deal tracked from <span class="b">inquiry to closing day.</span></h1>
+    <div class="chips" style="margin-top:34px;">
+      <div class="chip" style="background:#fff; border-color:#e2dcd0; color:var(--navy);">New Inquiry</div>
+      <div class="chip" style="background:#fff; border-color:#e2dcd0; color:var(--navy);">Showing Scheduled</div>
+      <div class="chip" style="background:#fff; border-color:#e2dcd0; color:var(--navy);">Offer Submitted</div>
+      <div class="chip" style="background:#fff; border-color:#e2dcd0; color:var(--navy);">Under Contract</div>
+      <div class="chip" style="background:var(--blue); border-color:var(--blue); color:#fff;">Closed ✓</div>
+    </div>
+    <p class="sub">Automatic follow-ups, deadline reminders, and pre-approval tracking on every card.</p>
+  </section>
+
+  <!-- 6 · TIME -->
+  <section class="slide g-deep" data-t="9">
+    <div class="kicker">Get your evenings back</div>
+    <div class="bignum">5+ hrs</div>
+    <h1 style="font-size:clamp(24px,3.6vw,44px);">saved every week on <span class="b">follow-up, scheduling & reviews.</span></h1>
+  </section>
+
+  <!-- 7 · MONEY -->
+  <section class="slide g-blue" data-t="11">
+    <div class="kicker" style="opacity:0.85;">What speed is worth</div>
+    <h1 style="font-size:clamp(26px,4.4vw,56px);">2–3 extra closings a year.</h1>
+    <div class="vals">
+      <div class="val"><div class="n"><em>2.3x</em></div><div class="l">More leads contacted same-day</div></div>
+      <div class="val"><div class="n">$48k<em>+</em></div><div class="l">Added GCI per year</div></div>
+      <div class="val"><div class="n"><em>38s</em></div><div class="l">Avg response time</div></div>
+    </div>
+  </section>
+
+  <!-- 8 · FEATURES -->
+  <section class="slide g-deep" data-t="11">
+    <div class="kicker">Everything in one stack</div>
+    <h1 style="font-size:clamp(26px,4vw,50px);">Built for REALTORS®, <span class="b">not spreadsheets.</span></h1>
+    <div class="chips">
+      <div class="chip"><em>🤖</em> AI Receptionist</div>
+      <div class="chip"><em>⬡</em> Deal Pipeline</div>
+      <div class="chip"><em>📅</em> Showing Scheduler</div>
+      <div class="chip"><em>📍</em> Territory Routing</div>
+      <div class="chip"><em>⭐</em> Review Engine</div>
+      <div class="chip"><em>📊</em> GCI Analytics</div>
+    </div>
+  </section>
+
+  <!-- 9 · CTA -->
+  <section class="slide g-deep" data-t="8">
+    <div class="lockup">
+      <div class="wordmark" style="font-size:clamp(40px,6.5vw,84px);">Agent<span>Stack</span></div>
+      <div class="lock-tag">Real Estate Solutions</div>
+    </div>
+    <p class="sub">Stop losing deals between showings.</p>
+    <div class="cta-btn">Start Free — 14 Days</div>
+    <div class="url">agentstacksolutions.com</div>
+  </section>
+
+</div>
+
+<div class="hud">
+  <span class="clock" id="clock">0:00</span>
+  <button id="back">‹ Back</button>
+  <button id="pp">Pause</button>
+  <button id="next">Next ›</button>
+  <div class="dots" id="dots"></div>
+</div>
+
+<script>
+  const slides = [...document.querySelectorAll('.slide')];
+  const durs = slides.map(s => +s.dataset.t);
+  const total = durs.reduce((a,b)=>a+b,0);
+  const bar = document.getElementById('bar');
+  const clock = document.getElementById('clock');
+  const dotsEl = document.getElementById('dots');
+  slides.forEach((_,i)=>{ const d=document.createElement('div'); d.className='dot'; d.onclick=()=>go(i); dotsEl.appendChild(d); });
+  const dots=[...dotsEl.children];
+
+  let idx=0, elapsed=0, inSlide=0, playing=true;
+
+  function go(i){
+    idx=Math.max(0,Math.min(slides.length-1,i));
+    inSlide=0;
+    elapsed=durs.slice(0,idx).reduce((a,b)=>a+b,0);
+    render();
+  }
+  function render(){
+    slides.forEach((s,i)=>s.classList.toggle('active',i===idx));
+    dots.forEach((d,i)=>d.classList.toggle('on',i===idx));
+    const t=Math.min(total,Math.floor(elapsed));
+    clock.textContent=Math.floor(t/60)+':'+String(t%60).padStart(2,'0');
+    bar.style.width=(elapsed/total*100)+'%';
+  }
+  setInterval(()=>{
+    if(!playing) return;
+    elapsed+=0.1; inSlide+=0.1;
+    if(inSlide>=durs[idx]){
+      if(idx<slides.length-1){ idx++; inSlide=0; }
+      else { playing=false; document.getElementById('pp').textContent='Replay'; }
+    }
+    render();
+  },100);
+
+  document.getElementById('pp').onclick=e=>{
+    if(e.target.textContent==='Replay'){ idx=0; elapsed=0; inSlide=0; playing=true; e.target.textContent='Pause'; render(); return; }
+    playing=!playing; e.target.textContent=playing?'Pause':'Play';
+  };
+  document.getElementById('next').onclick=()=>go(idx+1);
+  document.getElementById('back').onclick=()=>go(idx-1);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight')go(idx+1);
+    if(e.key==='ArrowLeft')go(idx-1);
+    if(e.key===' '){e.preventDefault();document.getElementById('pp').click();}
+  });
+  render();
+</script>
+</body>
+</html>
