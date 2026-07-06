@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AgentStack — Real Estate Solutions</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:#f5f0e8; color:#1b3d7a; }
+
+  /* NAV */
+  .nav { display:flex; align-items:center; justify-content:space-between; padding:24px 64px; }
+  .logo { font-size:26px; font-weight:800; letter-spacing:-0.02em; color:#1b3d7a; line-height:1; text-align:center; }
+  .logo span { color:#3b7ff2; }
+  .logo-tag { font-size:8px; font-weight:600; letter-spacing:0.26em; text-indent:0.26em; text-transform:uppercase; color:rgba(27,61,122,0.55); margin-top:5px; text-align:center; }
+  .nav-links { display:flex; gap:36px; font-size:14px; color:rgba(27,61,122,0.6); }
+  .nav-cta { background:#3b7ff2; color:#f5f0e8; padding:10px 22px; border-radius:8px; font-size:14px; font-weight:600; }
+
+  /* HERO */
+  .hero-wrap { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:60px; padding:70px 64px 90px; max-width:1200px; margin:0 auto; }
+  .badge { display:inline-flex; align-items:center; gap:8px; background:rgba(59,127,242,0.1); border:1px solid rgba(59,127,242,0.3); color:#3b7ff2; font-size:12px; font-weight:600; padding:6px 14px; border-radius:20px; margin-bottom:28px; letter-spacing:0.02em; }
+  .dot { width:6px; height:6px; border-radius:50%; background:#3b7ff2; }
+  h1 { font-size:50px; line-height:1.08; font-weight:800; letter-spacing:-0.03em; margin-bottom:22px; color:#1b3d7a; }
+  h1 em { color:#3b7ff2; font-style:normal; }
+  .sub { font-size:17px; color:rgba(27,61,122,0.6); line-height:1.65; margin-bottom:36px; }
+  .cta-row { display:flex; gap:14px; margin-bottom:18px; }
+  .btn-primary { background:#3b7ff2; color:#f5f0e8; padding:15px 28px; border-radius:10px; font-weight:600; font-size:15px; cursor:pointer; }
+  .btn-secondary { background:rgba(27,61,122,0.06); border:1px solid rgba(27,61,122,0.18); color:#1b3d7a; padding:15px 28px; border-radius:10px; font-weight:600; font-size:15px; cursor:pointer; }
+  .fine { font-size:13px; color:rgba(27,61,122,0.4); }
+
+  /* DASHBOARD MOCKUP */
+  .dash-mockup { background:#fff; border-radius:18px; border:1px solid rgba(27,61,122,0.1); box-shadow:0 24px 60px rgba(27,61,122,0.12); overflow:hidden; }
+  .dash-topbar { background:#1b3d7a; padding:12px 18px; display:flex; align-items:center; gap:8px; }
+  .dash-dot { width:10px; height:10px; border-radius:50%; }
+  .dash-dot.r{background:#e85555;} .dash-dot.y{background:#f0b429;} .dash-dot.g{background:#36c46a;}
+  .dash-title { color:rgba(255,255,255,0.5); font-size:12px; margin-left:8px; }
+  .dash-body { padding:20px; display:grid; grid-template-columns:160px 1fr; gap:16px; min-height:320px; }
+  .dash-sidebar { display:flex; flex-direction:column; gap:4px; }
+  .dash-nav-item { padding:9px 12px; border-radius:8px; font-size:12px; font-weight:500; color:rgba(27,61,122,0.5); display:flex; align-items:center; gap:8px; }
+  .dash-nav-item.active { background:rgba(59,127,242,0.1); color:#3b7ff2; font-weight:600; }
+  .dash-nav-dot { width:7px; height:7px; border-radius:50%; background:currentColor; opacity:0.6; }
+  .dash-main { display:flex; flex-direction:column; gap:12px; }
+  .dash-stat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+  .dash-stat { background:#f5f0e8; border-radius:10px; padding:12px; }
+  .dash-stat-val { font-size:20px; font-weight:800; color:#1b3d7a; }
+  .dash-stat-label { font-size:10px; color:rgba(27,61,122,0.5); margin-top:2px; }
+  .dash-stat-up { font-size:10px; color:#36c46a; font-weight:600; }
+  .pipeline-label { font-size:11px; font-weight:700; color:rgba(27,61,122,0.4); letter-spacing:0.06em; margin-top:4px; }
+  .pipeline-cols { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:6px; }
+  .pipe-col { background:#f5f0e8; border-radius:8px; padding:8px; }
+  .pipe-col-head { font-size:10px; font-weight:700; color:rgba(27,61,122,0.5); margin-bottom:6px; letter-spacing:0.04em; }
+  .pipe-card { background:#fff; border-radius:6px; padding:7px 8px; margin-bottom:5px; border-left:3px solid #3b7ff2; }
+  .pipe-card-name { font-size:10px; font-weight:600; color:#1b3d7a; }
+  .pipe-card-detail { font-size:9px; color:rgba(27,61,122,0.45); margin-top:2px; }
+  .pipe-card.green { border-left-color:#36c46a; }
+  .pipe-card.blue { border-left-color:#4a90d9; }
+
+  /* PAIN BANNER */
+  .pain-banner { background:#1b3d7a; padding:56px 64px; text-align:center; }
+  .pain-banner h2 { font-size:28px; font-weight:800; color:#f5f0e8; letter-spacing:-0.02em; margin-bottom:14px; }
+  .pain-banner p { font-size:16px; color:rgba(245,240,232,0.6); max-width:600px; margin:0 auto 36px; line-height:1.65; }
+  .pain-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; max-width:900px; margin:0 auto; }
+  .pain-item { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:24px; text-align:left; }
+  .pain-emoji { font-size:22px; margin-bottom:10px; }
+  .pain-item h3 { font-size:14px; font-weight:700; color:#f5f0e8; margin-bottom:6px; }
+  .pain-item p { font-size:13px; color:rgba(245,240,232,0.5); line-height:1.55; }
+  .pain-arrow { color:#3b7ff2; font-size:22px; margin:32px auto 0; }
+
+  /* STATS */
+  .stats { display:flex; justify-content:center; gap:64px; padding:50px 64px; border-top:1px solid rgba(27,61,122,0.1); border-bottom:1px solid rgba(27,61,122,0.1); }
+  .stat-num { font-size:32px; font-weight:800; color:#3b7ff2; }
+  .stat-label { font-size:13px; color:rgba(27,61,122,0.5); margin-top:4px; }
+
+  /* HOW IT WORKS */
+  .how { padding:90px 64px; max-width:1100px; margin:0 auto; }
+  .section-head { text-align:center; margin-bottom:56px; }
+  .section-head h2 { font-size:34px; font-weight:800; letter-spacing:-0.02em; margin-bottom:12px; color:#1b3d7a; }
+  .section-head p { color:rgba(27,61,122,0.55); font-size:15px; }
+  .steps { display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative; }
+  .steps::before { content:''; position:absolute; top:30px; left:12.5%; right:12.5%; height:2px; background:repeating-linear-gradient(90deg,#3b7ff2 0,#3b7ff2 8px,transparent 8px,transparent 16px); opacity:0.3; }
+  .step { text-align:center; padding:0 20px; }
+  .step-num { width:60px; height:60px; border-radius:50%; background:#3b7ff2; color:#f5f0e8; font-size:20px; font-weight:800; display:flex; align-items:center; justify-content:center; margin:0 auto 20px; position:relative; z-index:1; }
+  .step h3 { font-size:15px; font-weight:700; margin-bottom:8px; color:#1b3d7a; }
+  .step p { font-size:13px; color:rgba(27,61,122,0.55); line-height:1.55; }
+
+  /* FEATURES */
+  .features { padding:90px 64px; max-width:1100px; margin:0 auto; }
+  .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .card { background:#ede8df; border:1px solid rgba(27,61,122,0.09); border-radius:16px; padding:32px 28px; }
+  .icon-box { width:44px; height:44px; border-radius:10px; background:rgba(59,127,242,0.12); display:flex; align-items:center; justify-content:center; margin-bottom:18px; font-size:20px; }
+  .card h3 { font-size:16px; font-weight:600; margin-bottom:8px; color:#1b3d7a; }
+  .card p { font-size:13.5px; color:rgba(27,61,122,0.55); line-height:1.55; }
+
+  /* AI CHAT */
+  .ai-section { padding:90px 64px; background:#f0ebe0; }
+  .ai-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+  .ai-text h2 { font-size:34px; font-weight:800; letter-spacing:-0.02em; margin-bottom:16px; color:#1b3d7a; }
+  .ai-text p { font-size:15px; color:rgba(27,61,122,0.6); line-height:1.65; margin-bottom:28px; }
+  .t-bullet { display:flex; align-items:flex-start; gap:12px; font-size:14px; color:rgba(27,61,122,0.7); margin-bottom:14px; }
+  .t-bullet-dot { width:20px; height:20px; border-radius:50%; background:rgba(59,127,242,0.15); display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px; }
+  .t-bullet-dot::after { content:''; width:7px; height:7px; border-radius:50%; background:#3b7ff2; display:block; }
+  .ai-chat-mock { background:#fff; border-radius:20px; border:1px solid rgba(27,61,122,0.1); box-shadow:0 12px 40px rgba(27,61,122,0.08); overflow:hidden; }
+  .chat-header { background:#1b3d7a; padding:16px 20px; display:flex; align-items:center; gap:12px; }
+  .chat-avatar { width:36px; height:36px; border-radius:50%; background:#3b7ff2; display:flex; align-items:center; justify-content:center; font-size:16px; }
+  .chat-title { color:#f5f0e8; font-size:14px; font-weight:600; }
+  .chat-sub { color:rgba(245,240,232,0.5); font-size:11px; margin-top:1px; }
+  .online-dot { width:8px; height:8px; border-radius:50%; background:#36c46a; margin-left:auto; }
+  .chat-body { padding:20px; display:flex; flex-direction:column; gap:14px; }
+  .msg { max-width:82%; }
+  .msg-bubble { padding:11px 14px; border-radius:12px; font-size:13px; line-height:1.5; }
+  .msg.bot .msg-bubble { background:#f5f0e8; color:#1b3d7a; border-bottom-left-radius:4px; }
+  .msg.user { align-self:flex-end; }
+  .msg.user .msg-bubble { background:#3b7ff2; color:#f5f0e8; border-bottom-right-radius:4px; }
+  .msg-time { font-size:10px; color:rgba(27,61,122,0.35); margin-top:4px; }
+  .msg.user .msg-time { text-align:right; }
+  .chat-input-row { padding:14px 16px; border-top:1px solid rgba(27,61,122,0.08); display:flex; gap:10px; align-items:center; }
+  .chat-input { flex:1; background:#f5f0e8; border:none; border-radius:8px; padding:10px 14px; font-size:13px; color:#1b3d7a; font-family:'Inter',sans-serif; }
+  .chat-send { background:#3b7ff2; color:#f5f0e8; border:none; border-radius:8px; padding:10px 16px; font-size:13px; font-weight:600; cursor:pointer; }
+
+  /* PIPELINE VISUAL */
+  .pipeline-section { padding:90px 64px; max-width:1100px; margin:0 auto; }
+  .pipe-visual { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-top:48px; }
+  .pv-col { background:#ede8df; border-radius:14px; padding:18px 14px; }
+  .pv-col-head { font-size:11px; font-weight:700; letter-spacing:0.06em; color:rgba(27,61,122,0.45); margin-bottom:14px; padding-bottom:10px; border-bottom:2px solid rgba(27,61,122,0.08); }
+  .pv-col-head span { display:inline-block; background:rgba(27,61,122,0.08); border-radius:20px; padding:2px 8px; font-size:10px; margin-left:4px; }
+  .pv-card { background:#fff; border-radius:10px; padding:12px; margin-bottom:10px; box-shadow:0 2px 8px rgba(27,61,122,0.06); border-left:3px solid #3b7ff2; }
+  .pv-card.blue { border-left-color:#4a90d9; }
+  .pv-card.green { border-left-color:#36c46a; }
+  .pv-card.purple { border-left-color:#9b59b6; }
+  .pv-card-name { font-size:12px; font-weight:700; color:#1b3d7a; }
+  .pv-card-price { font-size:11px; color:#3b7ff2; font-weight:600; margin-top:2px; }
+  .pv-card-tag { font-size:10px; color:rgba(27,61,122,0.45); margin-top:4px; }
+  .pv-card-date { font-size:10px; color:rgba(27,61,122,0.35); margin-top:6px; }
+  .pv-add { width:100%; border:1.5px dashed rgba(27,61,122,0.2); border-radius:8px; padding:8px; text-align:center; font-size:11px; color:rgba(27,61,122,0.35); cursor:pointer; }
+
+  /* TERRITORY */
+  .territory { padding:90px 64px; max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+  .territory-text h2 { font-size:34px; font-weight:800; letter-spacing:-0.02em; margin-bottom:16px; color:#1b3d7a; }
+  .territory-text p { font-size:15px; color:rgba(27,61,122,0.6); line-height:1.65; margin-bottom:28px; }
+  .map-svg-wrap { background:#ede8df; border-radius:20px; border:1px solid rgba(27,61,122,0.09); padding:32px; box-shadow:0 12px 40px rgba(27,61,122,0.08); }
+
+  /* TESTIMONIALS */
+  .testimonials { padding:90px 64px; background:#1b3d7a; }
+  .testimonials .section-head h2 { color:#f5f0e8; }
+  .testimonials .section-head p { color:rgba(245,240,232,0.5); }
+  .testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; max-width:1100px; margin:0 auto; }
+  .testi-card { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:28px; }
+  .testi-stars { color:#3b7ff2; font-size:14px; margin-bottom:14px; letter-spacing:2px; }
+  .testi-quote { font-size:14px; color:rgba(245,240,232,0.75); line-height:1.65; margin-bottom:20px; font-style:italic; }
+  .testi-author { display:flex; align-items:center; gap:12px; }
+  .testi-avatar { width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; color:#f5f0e8; flex-shrink:0; }
+  .testi-name { font-size:13px; font-weight:700; color:#f5f0e8; }
+  .testi-role { font-size:12px; color:rgba(245,240,232,0.45); margin-top:2px; }
+  .testi-gci { font-size:11px; color:#3b7ff2; font-weight:600; margin-top:3px; }
+
+  /* LOGIN */
+  .login-section { padding:100px 64px; display:flex; justify-content:center; }
+  .login-card { background:#ede8df; border:1px solid rgba(27,61,122,0.1); border-radius:20px; padding:48px; width:420px; }
+  .login-head { text-align:center; margin-bottom:32px; }
+  .login-head h2 { font-size:26px; font-weight:800; letter-spacing:-0.02em; margin-bottom:8px; color:#1b3d7a; }
+  .login-head p { font-size:14px; color:rgba(27,61,122,0.5); }
+  .tabs { display:flex; background:rgba(27,61,122,0.06); border-radius:10px; padding:4px; margin-bottom:24px; }
+  .tab { flex:1; text-align:center; padding:10px; border-radius:8px; font-size:14px; font-weight:600; color:#1b3d7a; }
+  .tab.active { background:#f5f0e8; }
+  .tab:not(.active) { color:rgba(27,61,122,0.4); }
+  .field-label { font-size:12px; font-weight:600; color:rgba(27,61,122,0.5); letter-spacing:0.04em; margin-bottom:7px; display:block; }
+  .field { width:100%; background:rgba(27,61,122,0.04); border:1px solid rgba(27,61,122,0.14); border-radius:9px; padding:13px 14px; color:#1b3d7a; font-size:14px; margin-bottom:18px; font-family:'Inter',sans-serif; }
+  .field::placeholder { color:rgba(27,61,122,0.3); }
+  .submit-btn { width:100%; background:#3b7ff2; color:#f5f0e8; padding:14px; border-radius:9px; font-weight:700; font-size:14.5px; margin-top:6px; text-align:center; cursor:pointer; }
+  .divider { display:flex; align-items:center; gap:14px; margin:22px 0; color:rgba(27,61,122,0.3); font-size:12px; }
+  .divider::before, .divider::after { content:''; flex:1; height:1px; background:rgba(27,61,122,0.12); }
+  .guest-btn { width:100%; background:transparent; border:1px solid rgba(27,61,122,0.15); color:rgba(27,61,122,0.7); padding:13px; border-radius:9px; font-weight:600; font-size:13.5px; text-align:center; cursor:pointer; }
+
+  .video-section { padding:80px 64px; text-align:center; background:#122a55; }
+  .video-section .vs-kick { font-size:11px; font-weight:800; letter-spacing:0.3em; text-indent:0.3em; text-transform:uppercase; color:#6ba3ff; margin-bottom:14px; }
+  .video-section h2 { font-size:clamp(26px,3.4vw,40px); font-weight:800; letter-spacing:-0.02em; color:#f5f0e8; margin-bottom:34px; }
+  .video-section video { width:min(960px,92vw); border-radius:18px; box-shadow:0 26px 80px rgba(0,0,0,0.45); display:block; margin:0 auto; }
+  .footer { padding:32px 64px; text-align:center; color:rgba(27,61,122,0.35); font-size:12.5px; border-top:1px solid rgba(27,61,122,0.08); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="nav">
+  <div>
+    <div class="logo">Agent<span>Stack</span></div>
+    <div class="logo-tag">Real Estate Solutions</div>
+  </div>
+  <div class="nav-links">
+    <span>For Agents</span><span>For Brokers</span><span>Pricing</span>
+  </div>
+  <div class="nav-cta">Start Free →</div>
+</div>
+
+<!-- HERO -->
+<div class="hero-wrap">
+  <div class="hero-left">
+    <div class="badge"><span class="dot"></span>Purpose-built for REALTORS®</div>
+    <h1>Stop losing deals<br>between <em>showings.</em></h1>
+    <p class="sub">AgentStack responds to every inbound lead in under 60 seconds, keeps your pipeline organized from first inquiry to closing day, and follows up so you don't have to.</p>
+    <div class="cta-row">
+      <div class="btn-primary">Start Free — No Card Needed</div>
+      <div class="btn-secondary">Watch 2-min Demo</div>
+    </div>
+    <div class="fine">Live in 5 minutes · Syncs with Zillow, Realtor.com & your website</div>
+  </div>
+  <div class="hero-right">
+    <div class="dash-mockup">
+      <div class="dash-topbar">
+        <div class="dash-dot r"></div><div class="dash-dot y"></div><div class="dash-dot g"></div>
+        <span class="dash-title">AgentStack — My Pipeline</span>
+      </div>
+      <div class="dash-body">
+        <div class="dash-sidebar">
+          <div class="dash-nav-item active"><span class="dash-nav-dot"></span>Pipeline</div>
+          <div class="dash-nav-item"><span class="dash-nav-dot"></span>Contacts</div>
+          <div class="dash-nav-item"><span class="dash-nav-dot"></span>Showings</div>
+          <div class="dash-nav-item"><span class="dash-nav-dot"></span>AI Follow-Up</div>
+          <div class="dash-nav-item"><span class="dash-nav-dot"></span>Listings</div>
+          <div class="dash-nav-item"><span class="dash-nav-dot"></span>GCI Tracker</div>
+        </div>
+        <div class="dash-main">
+          <div class="dash-stat-row">
+            <div class="dash-stat"><div class="dash-stat-val">$1.8M</div><div class="dash-stat-label">GCI Pipeline</div><div class="dash-stat-up">↑ 22% MoM</div></div>
+            <div class="dash-stat"><div class="dash-stat-val">6</div><div class="dash-stat-label">Under Contract</div><div class="dash-stat-up">2 closing soon</div></div>
+            <div class="dash-stat"><div class="dash-stat-val">14</div><div class="dash-stat-label">Showings This Wk</div><div class="dash-stat-up">↑ 3 new</div></div>
+          </div>
+          <div class="pipeline-label">ACTIVE PIPELINE</div>
+          <div class="pipeline-cols">
+            <div class="pipe-col">
+              <div class="pipe-col-head">NEW INQUIRY</div>
+              <div class="pipe-card"><div class="pipe-card-name">Sarah M.</div><div class="pipe-card-detail">Buyer · $480k pre-approved</div></div>
+              <div class="pipe-card"><div class="pipe-card-name">Tom & Lisa R.</div><div class="pipe-card-detail">Seller · 4BR Westfield</div></div>
+            </div>
+            <div class="pipe-col">
+              <div class="pipe-col-head">SHOWING SCHEDULED</div>
+              <div class="pipe-card blue"><div class="pipe-card-name">David K.</div><div class="pipe-card-detail">Sat 10am · 42 Elm St</div></div>
+            </div>
+            <div class="pipe-col">
+              <div class="pipe-col-head">OFFER MADE</div>
+              <div class="pipe-card"><div class="pipe-card-name">Chen Family</div><div class="pipe-card-detail">$925k offer pending</div></div>
+            </div>
+            <div class="pipe-col">
+              <div class="pipe-col-head">CLOSED ✓</div>
+              <div class="pipe-card green"><div class="pipe-card-name">J. Williams</div><div class="pipe-card-detail">$540k · Review sent</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAIN POINTS -->
+<div class="pain-banner">
+  <h2>Sound familiar?</h2>
+  <p>These are the three things killing your GCI — and none of them are about your market knowledge.</p>
+  <div class="pain-grid">
+    <div class="pain-item">
+      <div class="pain-emoji">😤</div>
+      <h3>"I was showing a house when the lead came in."</h3>
+      <p>The average Zillow lead goes cold in 5 minutes. If you're in a showing, you're already losing them to whoever picks up first.</p>
+    </div>
+    <div class="pain-item">
+      <div class="pain-emoji">📋</div>
+      <h3>"I have leads in my email, texts, and a spreadsheet."</h3>
+      <p>Scattered leads mean dropped follow-ups. If your pipeline lives in three places, it doesn't really live anywhere.</p>
+    </div>
+    <div class="pain-item">
+      <div class="pain-emoji">🔕</div>
+      <h3>"I keep meaning to ask past clients for reviews."</h3>
+      <p>Google reviews build your next listing appointment. Manual outreach after closing almost never actually happens.</p>
+    </div>
+  </div>
+  <div class="pain-arrow">↓</div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div><div class="stat-num">2.3x</div><div class="stat-label">more leads contacted same day</div></div>
+  <div><div class="stat-num">&lt;60s</div><div class="stat-label">avg AI response time</div></div>
+  <div><div class="stat-num">$0</div><div class="stat-label">platform fees during beta</div></div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="how">
+  <div class="section-head">
+    <h2>From inquiry to closing — all in one place.</h2>
+    <p>Built around how you actually work, not how software thinks you should.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Lead comes in</h3>
+      <p>Zillow, Realtor.com, your website, or a text — every inquiry lands in one pipeline automatically.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>AI qualifies instantly</h3>
+      <p>Your AI receptionist responds in seconds. Asks about pre-approval, timeline, and budget before you even look up.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>You take the warm lead</h3>
+      <p>You get a notification with a full summary — buyer criteria, motivation, pre-approval status — and book the showing.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h3>Close & get the review</h3>
+      <p>Closing triggers an automatic review request to Google. No chasing, no forgetting. Your reputation grows itself.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PIPELINE VISUAL -->
+<div class="pipeline-section">
+  <div class="section-head">
+    <h2>Your pipeline, your stages.</h2>
+    <p>Name every column exactly how your team talks about deals. No generic CRM jargon.</p>
+  </div>
+  <div class="pipe-visual">
+    <div class="pv-col">
+      <div class="pv-col-head">NEW INQUIRY <span>4</span></div>
+      <div class="pv-card">
+        <div class="pv-card-name">Martina & Joe S.</div>
+        <div class="pv-card-price">Buyer · $720k budget</div>
+        <div class="pv-card-tag">Zillow lead · Pre-approved</div>
+        <div class="pv-card-date">AI replied 12 min ago</div>
+      </div>
+      <div class="pv-card">
+        <div class="pv-card-name">Alex T.</div>
+        <div class="pv-card-price">Seller · 3BR Summit</div>
+        <div class="pv-card-tag">Website form</div>
+        <div class="pv-card-date">Just now</div>
+      </div>
+      <div class="pv-add">+ Add lead</div>
+    </div>
+    <div class="pv-col">
+      <div class="pv-col-head">SHOWING SCHEDULED <span>3</span></div>
+      <div class="pv-card blue">
+        <div class="pv-card-name">Chen Family</div>
+        <div class="pv-card-price">$880k · 5BR Westfield</div>
+        <div class="pv-card-tag">Sat 10am · 42 Oak Lane</div>
+        <div class="pv-card-date">Confirmed via AI</div>
+      </div>
+      <div class="pv-card blue">
+        <div class="pv-card-name">David K.</div>
+        <div class="pv-card-price">Buyer · $550k</div>
+        <div class="pv-card-tag">Sun 2pm · 14 Maple Dr</div>
+        <div class="pv-card-date">Pending confirmation</div>
+      </div>
+    </div>
+    <div class="pv-col">
+      <div class="pv-col-head">OFFER SUBMITTED <span>2</span></div>
+      <div class="pv-card purple">
+        <div class="pv-card-name">R. Okonkwo</div>
+        <div class="pv-card-price">$1.05M offer</div>
+        <div class="pv-card-tag">Counteroffer received</div>
+        <div class="pv-card-date">Expires in 18 hrs</div>
+      </div>
+    </div>
+    <div class="pv-col">
+      <div class="pv-col-head">UNDER CONTRACT <span>3</span></div>
+      <div class="pv-card green">
+        <div class="pv-card-name">Williams Family</div>
+        <div class="pv-card-price">$625k · Close 7/15</div>
+        <div class="pv-card-tag">Inspection done ✓</div>
+        <div class="pv-card-date">12 days to close</div>
+      </div>
+      <div class="pv-card green">
+        <div class="pv-card-name">Patel & Son</div>
+        <div class="pv-card-price">$490k · Close 7/22</div>
+        <div class="pv-card-tag">Appraisal pending</div>
+        <div class="pv-card-date">19 days to close</div>
+      </div>
+    </div>
+    <div class="pv-col">
+      <div class="pv-col-head">CLOSED THIS MONTH <span>5</span></div>
+      <div class="pv-card green">
+        <div class="pv-card-name">J. Henderson</div>
+        <div class="pv-card-price">$540k ✓</div>
+        <div class="pv-card-tag">⭐ Review received</div>
+        <div class="pv-card-date">Closed Jun 18</div>
+      </div>
+      <div class="pv-card green">
+        <div class="pv-card-name">Kim & Park</div>
+        <div class="pv-card-price">$775k ✓</div>
+        <div class="pv-card-tag">⭐ Review requested</div>
+        <div class="pv-card-date">Closed Jun 12</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AI CHAT -->
+<div class="ai-section">
+  <div class="ai-inner">
+    <div class="ai-text">
+      <h2>You can't answer every inquiry. Your AI can.</h2>
+      <p>When a buyer texts at 9pm after seeing your listing on Zillow, AgentStack's AI responds in your voice, qualifies them on the spot, and books a showing on your calendar — before any other agent even sees the notification.</p>
+      <div class="t-bullet"><div class="t-bullet-dot"></div>Asks about pre-approval, timeline, and must-haves</div>
+      <div class="t-bullet"><div class="t-bullet-dot"></div>Books showings directly into your calendar</div>
+      <div class="t-bullet"><div class="t-bullet-dot"></div>Hands off with a full lead summary — no data entry</div>
+      <div class="t-bullet"><div class="t-bullet-dot"></div>Follows up automatically if they go quiet</div>
+    </div>
+    <div class="ai-chat-mock">
+      <div class="chat-header">
+        <div class="chat-avatar">🏡</div>
+        <div>
+          <div class="chat-title">Rivera Realty Group</div>
+          <div class="chat-sub">Powered by AgentStack AI · Replies instantly</div>
+        </div>
+        <div class="online-dot"></div>
+      </div>
+      <div class="chat-body">
+        <div class="msg bot">
+          <div class="msg-bubble">Hi! Thanks for reaching out to Rivera Realty Group. Are you looking to buy, sell, or just exploring?</div>
+          <div class="msg-time">9:07 PM</div>
+        </div>
+        <div class="msg user">
+          <div class="msg-bubble">Looking to buy — saw the listing on Zillow on Oak Lane. 4BR, $849k?</div>
+          <div class="msg-time">9:08 PM</div>
+        </div>
+        <div class="msg bot">
+          <div class="msg-bubble">Yes, that's one of ours! Beautiful home — just had a price improvement. Are you pre-approved, and what's your target move-in timeline?</div>
+          <div class="msg-time">9:08 PM</div>
+        </div>
+        <div class="msg user">
+          <div class="msg-bubble">Pre-approved up to $900k. We'd love to move by end of summer.</div>
+          <div class="msg-time">9:09 PM</div>
+        </div>
+        <div class="msg bot">
+          <div class="msg-bubble">Perfect timing — the seller is very motivated. I'm booking you with Sarah for a private showing Saturday at 10am. You'll get a confirmation text in a moment. 🏡</div>
+          <div class="msg-time">9:09 PM</div>
+        </div>
+      </div>
+      <div class="chat-input-row">
+        <input class="chat-input" placeholder="Type a message…" readonly>
+        <button class="chat-send">Send</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TERRITORY MAP -->
+<div class="territory">
+  <div class="territory-text">
+    <h2>Know your farm. Own it.</h2>
+    <p>AgentStack lets you scope every lead, follow-up sequence, and AI persona by ZIP code, town, or county. The right agent gets the right lead, every time — and you see exactly where your GCI is coming from.</p>
+    <div class="t-bullet"><div class="t-bullet-dot"></div>Route leads by farm area automatically</div>
+    <div class="t-bullet"><div class="t-bullet-dot"></div>Track closed volume by territory over time</div>
+    <div class="t-bullet"><div class="t-bullet-dot"></div>Identify which ZIPs are producing — and which aren't</div>
+  </div>
+  <div>
+    <div class="map-svg-wrap">
+      <svg viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+        <line x1="0" y1="65" x2="340" y2="65" stroke="rgba(27,61,122,0.08)" stroke-width="1"/>
+        <line x1="0" y1="130" x2="340" y2="130" stroke="rgba(27,61,122,0.08)" stroke-width="1"/>
+        <line x1="0" y1="195" x2="340" y2="195" stroke="rgba(27,61,122,0.08)" stroke-width="1"/>
+        <line x1="85" y1="0" x2="85" y2="260" stroke="rgba(27,61,122,0.08)" stroke-width="1"/>
+        <line x1="170" y1="0" x2="170" y2="260" stroke="rgba(27,61,122,0.08)" stroke-width="1"/>
+        <line x1="255" y1="0" x2="255" y2="260" stroke="rgba(27,61,122,0.08)" stroke-width="1"/>
+        <rect x="10" y="10" width="150" height="110" rx="6" fill="rgba(59,127,242,0.15)" stroke="#3b7ff2" stroke-width="1.5"/>
+        <text x="85" y="48" text-anchor="middle" fill="#3b7ff2" font-size="11" font-weight="700" font-family="Inter,sans-serif">WESTFIELD 07090</text>
+        <text x="85" y="64" text-anchor="middle" fill="rgba(27,61,122,0.6)" font-size="9" font-family="Inter,sans-serif">24 leads · $4.2M pipeline</text>
+        <rect x="175" y="10" width="155" height="110" rx="6" fill="rgba(27,61,122,0.07)" stroke="rgba(27,61,122,0.15)" stroke-width="1.5"/>
+        <text x="252" y="48" text-anchor="middle" fill="#1b3d7a" font-size="11" font-weight="700" font-family="Inter,sans-serif">CRANFORD 07016</text>
+        <text x="252" y="64" text-anchor="middle" fill="rgba(27,61,122,0.5)" font-size="9" font-family="Inter,sans-serif">11 leads · $1.8M pipeline</text>
+        <rect x="10" y="135" width="70" height="115" rx="6" fill="rgba(27,61,122,0.05)" stroke="rgba(27,61,122,0.12)" stroke-width="1.5"/>
+        <text x="45" y="190" text-anchor="middle" fill="#1b3d7a" font-size="9" font-weight="700" font-family="Inter,sans-serif">GARWOOD</text>
+        <text x="45" y="204" text-anchor="middle" fill="rgba(27,61,122,0.4)" font-size="8" font-family="Inter,sans-serif">07027</text>
+        <rect x="95" y="135" width="235" height="115" rx="6" fill="rgba(59,127,242,0.08)" stroke="rgba(59,127,242,0.25)" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <text x="212" y="183" text-anchor="middle" fill="#3b7ff2" font-size="11" font-weight="700" font-family="Inter,sans-serif">SCOTCH PLAINS 07076</text>
+        <text x="212" y="199" text-anchor="middle" fill="rgba(27,61,122,0.5)" font-size="9" font-family="Inter,sans-serif">Expanding farm area</text>
+        <circle cx="72" cy="38" r="8" fill="#3b7ff2"/>
+        <text x="72" y="42" text-anchor="middle" fill="#f5f0e8" font-size="8" font-weight="700">7</text>
+        <circle cx="110" cy="80" r="8" fill="#3b7ff2"/>
+        <text x="110" y="84" text-anchor="middle" fill="#f5f0e8" font-size="8" font-weight="700">12</text>
+        <circle cx="220" cy="55" r="8" fill="#1b3d7a"/>
+        <text x="220" y="59" text-anchor="middle" fill="#f5f0e8" font-size="8" font-weight="700">5</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="features">
+  <div class="section-head">
+    <h2>Every tool you need between inquiry and commission check.</h2>
+    <p>No bloat. No features you'll never use. Built specifically for how agents and brokers actually work.</p>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="icon-box">⚡</div>
+      <h3>Speed-to-lead that wins</h3>
+      <p>The agent who responds first wins the client 78% of the time. AgentStack replies for you in under 60 seconds — every time, even at midnight.</p>
+    </div>
+    <div class="card">
+      <div class="icon-box">📋</div>
+      <h3>Pipeline from inquiry to close</h3>
+      <p>Track every buyer and seller from first contact through closing day. Name your stages — "Showing Scheduled," "Offer In," "Clear to Close" — exactly how you talk about deals.</p>
+    </div>
+    <div class="card">
+      <div class="icon-box">📅</div>
+      <h3>Showing scheduler, built in</h3>
+      <p>Your AI books showings directly on your calendar. Buyers get confirmation texts automatically. No back-and-forth, no double-bookings.</p>
+    </div>
+    <div class="card">
+      <div class="icon-box">⭐</div>
+      <h3>Reviews on autopilot</h3>
+      <p>Every closed deal triggers a Google review request. Build your listing-appointment-winning reputation without ever having to ask awkwardly.</p>
+    </div>
+    <div class="card">
+      <div class="icon-box">🏢</div>
+      <h3>White-label for your brokerage</h3>
+      <p>Run under your own brand with custom AI personas for each agent. Or resell to other agents — each gets their own sub-account and voice.</p>
+    </div>
+    <div class="card">
+      <div class="icon-box">📊</div>
+      <h3>GCI tracker & reporting</h3>
+      <p>Know exactly where your commission dollars are coming from — by lead source, farm area, agent, or month. No more guessing what's working.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testimonials">
+  <div class="section-head">
+    <h2>Agents who stopped losing deals between showings.</h2>
+    <p>Real results from real REALTORS®.</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-quote">"A Zillow lead came in at 9:43pm on a Friday. The AI had them qualified and booked for a Saturday showing before I even knew about it. We closed at $895k. That's a deal I definitely would have lost before."</div>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:#3b7ff2;">MR</div>
+        <div>
+          <div class="testi-name">Marcus R.</div>
+          <div class="testi-role">REALTOR® · Westfield, NJ</div>
+          <div class="testi-gci">$2.1M GCI last 12 months</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-quote">"My whole team was using email threads, texts, and a Google Sheet to manage leads. Three weeks after switching, we had zero dropped follow-ups for the first time ever. Setup took one afternoon."</div>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:#27488c;">TK</div>
+        <div>
+          <div class="testi-name">Tanya K.</div>
+          <div class="testi-role">Team Lead · 12 agents · Summit, NJ</div>
+          <div class="testi-gci">Up 34% YoY in closed volume</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-quote">"I white-labeled it for six agents in my network. Each one has their own brand and AI persona. My agents get a competitive edge, and I get a recurring revenue stream. It's been a total win."</div>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:#7a5c28;">DL</div>
+        <div>
+          <div class="testi-name">David L.</div>
+          <div class="testi-role">Managing Broker · Union County, NJ</div>
+          <div class="testi-gci">6 sub-accounts active</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN -->
+<div class="video-section">
+  <div class="vs-kick">90-Second Teaser</div>
+  <h2>See AgentStack in action</h2>
+  <video src="agentstack-teaser.mp4" controls muted playsinline preload="metadata"></video>
+</div>
+
+<div class="login-section">
+  <div class="login-card">
+    <div class="login-head">
+      <h2>Welcome back</h2>
+      <p>Sign in to your AgentStack workspace</p>
+    </div>
+    <div class="tabs">
+      <div class="tab active">Sign In</div>
+      <div class="tab">Create Account</div>
+    </div>
+    <label class="field-label">EMAIL</label>
+    <input class="field" placeholder="you@yourbrokerage.com">
+    <label class="field-label">PASSWORD</label>
+    <input class="field" placeholder="••••••••" type="password">
+    <div class="submit-btn">Sign In</div>
+    <div class="divider">or</div>
+    <div class="guest-btn">👀 Explore as guest — no signup needed</div>
+  </div>
+</div>
+
+<div class="footer">© 2026 AgentStack · Real Estate Solutions · Built for REALTORS®, not spreadsheets</div>
+
+</body>
+</html>
